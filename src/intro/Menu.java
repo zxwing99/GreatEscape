@@ -6,7 +6,7 @@ public class Menu {
 	}
 	
 	public void showInstructions(){
-		Instructions intsturctions = new Instructions();
+		Instructions intsturctions = new Instructions("");
 		intsturctions.show();
 	}
 
