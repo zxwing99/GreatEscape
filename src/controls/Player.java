@@ -1,4 +1,4 @@
-package stuff;
+package controls;
 
 public class Player {
 	int x, y, w, h;
