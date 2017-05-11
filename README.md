@@ -4,7 +4,7 @@ Authors : Zachary Norton, Kathleen Baur, Meera Srinivasan
 Written in May of 2017
 
 DESCRIPTION:
-The player runs through a level which contains obstacles and opponents while attempting to gain points by shooting the latter. This continues until finish line is reached. While playing the player is only able to view a certain part of a level and the viewing window progresses along the level map as time goes by. If the player touches any of the window boundaries, the level is lost. Being shot by opponents or touching these causes a decrease in health, which can eventually lead to death. This game can be used to improve eye-hand coordination or improve target shooting accuracy.
+The player runs through a level (top down view) which contains obstacles and opponents while attempting to gain points by shooting the latter. This continues until finish line is reached. While playing the player is only able to view a certain part of a level and the viewing window progresses along the level map as time goes by. If the player touches any of the window boundaries, the level is lost. Being shot by opponents or touching these causes a decrease in health, which can eventually lead to death. This game can be used to improve eye-hand coordination or improve target shooting accuracy.
 
 INSTRUCTIONS :
 The character can be moved through the level with either ‘wasd’ or the arrow keys. The mouse is used to aim and the player can shoot with a left click.
@@ -28,38 +28,27 @@ FEATURES:
     	- AI opponent that works against the player
 
 CLASSES:
-	- GameMain - sets up a new game (Kathleen)
-	- GameFrame - layout (Meera)
-	- Introduction - game introduction/menu (Meera)
-	- Instructions - displays game rules (Meera)
-	- EndGame - displays the player’s points gained and whether the game was won or lost (Kathleen)
-	- MapView - regulates what part of the LevelMap is currently being played in (Kathleen)
-	- Player - represents the player (triangle shaped, can shoot, etc.)(Zachary)
-	- Obstacle - walls that crumble under attack (Zachary)
-	- Opponent - circles that shoot bullets in repeating patterns (Zachary)
-	- Shooter - type of opponent, extensds opponent
+	- GameMain - sets up a new game 
+	- GameFrame - layout 
+	- Introduction - game introduction/menu 
+	- Instructions - displays game rules 
+	- EndGame - displays the player’s points gained and whether the game was won or lost 
+	- MapView - regulates what part of the LevelMap is currently being played in
+	- Player - represents the player (can shoot)
+	- Obstacle - obstacles (such as walls) that crumble under attack 
 	- Wall - type of obstacle, extends obstacle
-	- LevelMap - map of a level (Kathleen)
+	- Opponent - circles that shoot bullets in repeating patterns 
+	- Shooter - type of opponent, extensds opponent
+	- LevelMap - map of a level 
 	- Level 1/2/3/etc. - extend LevelMap
 	
 
 RESPONSIBILITIES:
-	- Meera: GameFrame, Intro, Instructions
-	- Zachary: Player, opponent, obstacles 
-	- Kathleen: LevelMap, MapView, Game Main, EndGame
+	- Meera: GameFrame, Introduction, Instructions
+	- Zachary: Player, Opponent, Obstacles, Wall, Shooter
+	- Kathleen: GameMain, EndGame, MapView, LevelMap, Level 1/2/3
 
-# The relationship between Level1 and LevelMap, and Level2 and LevelMap, is flipped.
-# Add shooter to README. Redefine Obstacles, since Opponents (I assume) are not walls.
 # Add packages to UML - maybe to code as well.
-# Add OpponentType to UML. In addition, why does OpponentType extend from Opponent.
-# What is the purpose of MapView and LevelMap?
--What does the "level is lost" mean? What does "touching these" refer to? - LEVEL IS LOST REFERES TO HEALTH LEVEL; TOUCHING THESE REFERES TO TOUCHING WINDOW BOUNDARIES
--Is this a multiplayer game? Who are the opponents? - SINGLE PLAYER GAMES - THERE ARE OBSTACLES (OPPONENTS) TRYING TO BLOCK YOUR PATH TO THE BAG OF POINTS
--Is this side-scrolling or top dowm? - TOP-DOWN
--Are the opponents other people? If not, then why is AI a stretch feature instead of a must-have feature? If opponents are people and opponents require the individual use of a mouse and keyboard, then why is networking a stretch feature? - OPPONENTS AREN'T OTHER PEOPLE
--Do you need a class to handle input and output? What would the class do? Why not just use Action Listeners? - MIGHT JUST USE ACTIONLISTENER INSTEAD
--Do you shoot the obstacles do make them go away? Do you avoid them? Or is it a combination of both? --> What exactly do obstacles do and how do they interact with the player? THEY ATTEMPT TO SHOOT AND DECREASE THE HEALTH OF THE PLAYER, BUT THE PLAYER DOES SHOOT THE OBSTACLE (ONE SHOT = KILL)
--Is LevelMap a level manager? If Mapview is regulating the visible part of LevelMap, then why is LevelMap a map of possible levels instead of the current level? - MAYBE SHOULD BE CURRENT LEVEL
 
 
 
