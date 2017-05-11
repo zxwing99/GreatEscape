@@ -4,10 +4,10 @@ Authors : Zachary Norton, Kathleen Baur, Meera Srinivasan
 Written in May of 2017
 
 DESCRIPTION:
-The player runs through a level which contains obstacles and opponents while attempting to gain points by shooting the latter. This continues until the prize - a bag containing a set amount of points is reached. While playing the player is only able to view a certain part of a level and the viewing window progresses along the level map as time goes by. If the player touches any of the window boundaries, the level is lost. Being shot by opponents or touching these causes a decrease in health, which can eventually lead to death. This game can be used to improve eye-hand coordination or improve target shooting accuracy.
+The player runs through a level which contains obstacles and opponents while attempting to gain points by shooting the latter. This continues until finish line is reached. While playing the player is only able to view a certain part of a level and the viewing window progresses along the level map as time goes by. If the player touches any of the window boundaries, the level is lost. Being shot by opponents or touching these causes a decrease in health, which can eventually lead to death. This game can be used to improve eye-hand coordination or improve target shooting accuracy.
 
 INSTRUCTIONS :
-The character can be moved through the levelwith either ‘wasd’ or the arrow keys. The mouse is used to aim and the player can shoot with a left click.
+The character can be moved through the level with either ‘wasd’ or the arrow keys. The mouse is used to aim and the player can shoot with a left click.
 
 FEATURES:
   Must-have:
