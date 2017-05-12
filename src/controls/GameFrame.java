@@ -1,7 +1,7 @@
 package controls;
 
-import javax.swing.JPanel;
+import processing.core.PApplet;
 
-public class GameFrame extends JPanel {
+public class GameFrame extends PApplet {
 
 }
