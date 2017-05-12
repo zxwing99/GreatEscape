@@ -16,10 +16,10 @@ public class Player extends Rectangle2D.Double{
 	public void moveRight(){
 		x+=3;
 	}
-	public void goBackward(){
+	public void moveBackward(){
 		y+=3;
 	}
-	public void goLeft(){
+	public void moveLeft(){
 		
 	}
 
