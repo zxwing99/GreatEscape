@@ -61,6 +61,18 @@ public class Shooter extends Block implements ActionListener {
 			bullet.draw(g);
 		}
 		// TODO Auto-generated method stub
-
+	}
+	
+	public boolean collisionTester(Rectangle2D.Double rect) {
+		if(super.collisionTester(rect)){
+			return true;
+		}
+		else {
+			for(Bullet bullet :bullets){
+				if(bullet.intersects(rect))
+					return true;
+			}
+			return false;
+		}
 	}
 }

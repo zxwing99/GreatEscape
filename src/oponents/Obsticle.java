@@ -15,7 +15,6 @@ public abstract class Obsticle extends Rectangle2D.Double{
 
 	public boolean collisionTester(Rectangle2D.Double rect) {
 		return this.intersects(rect);
-
 	}
 	
 	public boolean collisionTester(Line2D line) {
@@ -23,5 +22,9 @@ public abstract class Obsticle extends Rectangle2D.Double{
 	}
 	
 	public abstract void draw(PApplet g);
+	
+	public void move(int y){
+		super.y+=y;
+	}
 	
 }
