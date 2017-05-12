@@ -17,10 +17,7 @@ public class Bullet extends Rectangle2D.Double{
 	}
 	
 	public void draw(PApplet g){
-		g.fill(255, 0, 0);
-		g.rect((int)x, (int)y, SIZE, SIZE);
-		g.fill(255);
-		
+		g.rect((int)x, (int)y, SIZE, SIZE);	
 	}
 	
 	public void act(){

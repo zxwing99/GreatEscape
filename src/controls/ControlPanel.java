@@ -15,6 +15,7 @@ public class ControlPanel implements ActionListener {
 	private Obsticle obsticles[];
 	private Player player;
 	private Timer timer;
+	public static final int MOVEBY = 5;
 	
 	public ControlPanel(LevelMap map, Obsticle obsticles[], Player player){
 		this.map = map;
@@ -27,7 +28,9 @@ public class ControlPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		// moves the map up
-		
+		for(Obsticle obsticle : obsticles){
+			obsticle.move(MOVEBY);
+		}
 		
 	}
 

@@ -57,9 +57,14 @@ public class Shooter extends Block implements ActionListener {
 	@Override
 	public void draw(PApplet g) {
 		super.draw(g);
+		g.pushMatrix();
+		g.pushStyle();
+		g.fill(255, 0, 0);
 		for (Bullet bullet : bullets) {
 			bullet.draw(g);
 		}
+		g.popMatrix();
+		g.popStyle();
 		// TODO Auto-generated method stub
 	}
 	
