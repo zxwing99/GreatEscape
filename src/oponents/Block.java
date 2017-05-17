@@ -4,7 +4,7 @@ import java.awt.Color;
 
 import processing.core.PApplet;
 
-public class Block extends Obsticle {
+public class Block extends Obstacle {
 //Zachary Norton
 	private Color c;
 	public Block(int x, int y, int sizeX, int sizeY) {

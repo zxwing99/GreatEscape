@@ -23,7 +23,7 @@ public class Shooter extends Block implements ActionListener {
 		super(x, y, sizeX, sizeY);
 		this.direction = direction;
 		bullets = new ArrayList<Bullet>();
-		fire = new Timer(100, this);
+		fire = new Timer(50, this);
 		fixer = 0;
 		fire.start();
 	}
@@ -44,7 +44,6 @@ public class Shooter extends Block implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("bullets move");
 		for (Bullet bullet : bullets) {
 			bullet.act();
 		}
@@ -79,5 +78,12 @@ public class Shooter extends Block implements ActionListener {
 			}
 			return false;
 		}
+	}
+	public void move(int y){
+		super.move(y);
+		for(Bullet bullet :bullets){
+			bullet.y+=y;
+		}
+		
 	}
 }
