@@ -63,10 +63,10 @@ public class EndGame extends PApplet implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == menu){
-			
-			GreatEscape ge = new GreatEscape();
 			window.setVisible(false);
-			dispose();
+//			dispose();
+			GreatEscape ge = new GreatEscape();
+
 		}
 	}
 	

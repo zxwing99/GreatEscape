@@ -45,9 +45,9 @@ public class GameFrame extends PApplet implements ActionListener{
 		window.setResizable(true);
 
 		window.setVisible(true);
-		timer = new Timer(100, this);
+		timer = new Timer(50, this);
 		timer.start();
-		moveTimer = new Timer(50, this);
+		moveTimer = new Timer(40, this);
 		moveTimer.start();
 	}
 
@@ -106,13 +106,13 @@ public class GameFrame extends PApplet implements ActionListener{
 	public void checkPlayer() {
 		for (Obstacle obstacle : obstacles) {
 			if (obstacle.collisionTester(player)) {
-				invinsible = 10;
+				invinsible = 30;
 //				player.looseALife();
 				if (!player.looseALife()) {
 					timer.stop();
 					moveTimer.stop();
 					window.setVisible(false);
-					this.dispose();
+//					this.dispose();
 					EndGame theEnd = new EndGame(false, distanceTraveled, map.getLength());
 				}
 			}

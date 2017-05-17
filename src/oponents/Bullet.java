@@ -6,7 +6,7 @@ import processing.core.PApplet;
 
 public class Bullet extends Rectangle2D.Double{
 //	private int dir;
-	public static final int SPEED = 3;
+	public static final int SPEED = 5;
 	public static final int SIZE = 6;
 	private final int XMOV, YMOV;
 	
