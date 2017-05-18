@@ -13,16 +13,14 @@ import processing.core.PApplet;
 public class Player extends Rectangle2D.Double implements ActionListener{
 	private int lives = 3;
 	public static final int SIZE = 50;
-	private int direction = 90;
+	private int direction = 270;
 	private Timer fire;
-	private long fixer;
 	private ArrayList<Bullet> bullets;
 	
 	public Player (int x, int y){
 		super(x, y, SIZE, SIZE);
 		bullets = new ArrayList<Bullet>();
 		fire = new Timer(20, this);
-		fixer = 0;
 		fire.start();
 	}
 	
@@ -42,7 +40,9 @@ public class Player extends Rectangle2D.Double implements ActionListener{
 	public ArrayList<Bullet> getbullets(){
 		return bullets;
 	}
-	
+	public void setDirection(int d){
+		direction = d;
+	}
 	public void draw(PApplet g){
 		g.pushMatrix();
 		g.pushStyle();
@@ -81,14 +81,20 @@ public class Player extends Rectangle2D.Double implements ActionListener{
 		for (Bullet bullet : bullets) {
 			bullet.act();
 		}
-		if(fixer%50==0){
-			shoot();
-		}
-		fixer++;
 	}
 
-	private void shoot() {
-		bullets.add(new Bullet((int) (x+width/2)-3, (int)(y)-6, direction));
+	public void shoot() {
+		if (direction<45||direction>315)
+		bullets.add(new Bullet((int) (x+width), (int)(y+height/2)-3, direction));
+		else if(direction<135){
+			bullets.add(new Bullet((int) (x+width/2)-3, (int)(y+height), direction));
+		}
+		else if(direction<225){
+			bullets.add(new Bullet((int) (x)-6, (int)(y+height/2)-3, direction));
+		}
+		else{
+			bullets.add(new Bullet((int) (x+width/2)-3, (int)(y)-6, direction));
+		}
 	}
 	
 
