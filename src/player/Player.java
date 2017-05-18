@@ -21,7 +21,7 @@ public class Player extends Rectangle2D.Double implements ActionListener{
 	public Player (int x, int y){
 		super(x, y, SIZE, SIZE);
 		bullets = new ArrayList<Bullet>();
-		fire = new Timer(100, this);
+		fire = new Timer(20, this);
 		fixer = 0;
 		fire.start();
 	}
@@ -39,6 +39,10 @@ public class Player extends Rectangle2D.Double implements ActionListener{
 		x-=3;
 	}
 	
+	public ArrayList<Bullet> getbullets(){
+		return bullets;
+	}
+	
 	public void draw(PApplet g){
 		g.pushMatrix();
 		g.pushStyle();
@@ -52,6 +56,9 @@ public class Player extends Rectangle2D.Double implements ActionListener{
 		}
 //		if (lives>=1)
 			g.rect((int)x, (int)y, SIZE, SIZE);
+			for(Bullet bullet : bullets){
+				bullet.draw(g);
+			}
 		g.popMatrix();
 		g.popStyle();
 	}

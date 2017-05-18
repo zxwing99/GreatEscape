@@ -8,9 +8,10 @@ import processing.core.PApplet;
 public abstract class Obstacle extends Rectangle2D.Double{
 
 	//Zachary Norton
+	private int stability;
 	public Obstacle(int x, int y, int sizeX, int sizeY){
 		super(x, y, sizeX, sizeY);
-
+		stability = 3;
 	}
 
 	public boolean collisionTester(Rectangle2D.Double rect) {
@@ -25,6 +26,16 @@ public abstract class Obstacle extends Rectangle2D.Double{
 	
 	public void move(int y){
 		super.y+=y;
+	}
+	
+	public int recieveShot(Rectangle2D.Double rect){
+		if(collisionTester(rect)){
+			stability --;
+			if (stability >0)
+				return 1;
+			else return 2;
+		}
+		else return 0;
 	}
 	
 }
