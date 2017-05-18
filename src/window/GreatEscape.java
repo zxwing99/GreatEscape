@@ -70,7 +70,7 @@ public class GreatEscape extends PApplet implements ActionListener{
 		window.setVisible(true);
 	}
 	
-	public static void main(String[] args){
-		new GreatEscape();
-	}
+//	public static void main(String[] args){
+//		new GreatEscape();
+//	}
 }
