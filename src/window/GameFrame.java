@@ -85,7 +85,7 @@ public class GameFrame extends PApplet implements ActionListener {
 				Obstacle obstacle = obstacles.get(c);
 				int result = obstacle.recieveShot(bullit);
 				if(result != 0){
-					bullits.remove(i);
+//					bullits.remove(i);
 					if(result == 2){
 						obstacles.remove(c);
 					}
