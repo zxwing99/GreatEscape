@@ -26,6 +26,7 @@ public class GameFrame extends PApplet implements ActionListener {
 	private int distanceTraveled;
 	private ArrayList<Integer> keys;
 	private int invinsible = 0;
+	
 
 	public GameFrame(LevelMap m) {
 		keys = new ArrayList<Integer>();
