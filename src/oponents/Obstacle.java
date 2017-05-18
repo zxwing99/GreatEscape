@@ -29,7 +29,7 @@ public abstract class Obstacle extends Rectangle2D.Double{
 	}
 	
 	public int recieveShot(Rectangle2D.Double rect){
-		if(collisionTester(rect)){
+		if(this.intersects(rect)){
 			stability --;
 			if (stability >0)
 				return 1;

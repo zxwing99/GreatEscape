@@ -21,7 +21,7 @@ public class GameFrame extends PApplet implements ActionListener {
 	private ArrayList<Obstacle> obstacles;
 	private Player player;
 	private Timer timer, moveTimer;
-	public static final int MOVEBY = -5;
+	public static final int MOVEBY = 5;
 	private JFrame window;
 	private int distanceTraveled;
 	private ArrayList<Integer> keys;
