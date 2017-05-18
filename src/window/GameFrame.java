@@ -73,6 +73,14 @@ public class GameFrame extends PApplet implements ActionListener {
 				player.moveRight();
 			if (isPressed(KeyEvent.VK_LEFT))
 				player.moveLeft();
+			if (isPressed(KeyEvent.VK_W))
+				player.setDirection(270);
+			if (isPressed(KeyEvent.VK_A))
+				player.setDirection(180);
+			if (isPressed(KeyEvent.VK_S))
+				player.setDirection(90);
+			if (isPressed(KeyEvent.VK_D))
+				player.setDirection(0);
 		}
 		if (invinsible <= 0)
 			checkPlayer();
@@ -101,23 +109,6 @@ public class GameFrame extends PApplet implements ActionListener {
 		player.draw(this);
 	}
 
-	// public void keyPressed(){
-	// if (key == CODED){
-	// if (keyCode == RIGHT){
-	// player.moveRight();
-	// }
-	// if(keyCode == LEFT){
-	// player.moveLeft();
-	// }
-	// if(keyCode == UP){
-	// player.moveFoward();
-	// }
-	// if(keyCode == DOWN){
-	// player.moveBackward();
-	// }
-	// }
-	// }
-
 	public void checkPlayer() {
 		for (Obstacle obstacle : obstacles) {
 			if (obstacle.collisionTester(player)) {
@@ -137,6 +128,9 @@ public class GameFrame extends PApplet implements ActionListener {
 	public void keyPressed() {
 		if (!keys.contains(keyCode))
 			keys.add(keyCode);
+		if(KeyEvent.VK_SPACE == keyCode){
+			player.shoot();
+		}
 	}
 
 	public void keyReleased() {

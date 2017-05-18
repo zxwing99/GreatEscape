@@ -13,7 +13,7 @@ import processing.core.PApplet;
 public class Player extends Rectangle2D.Double implements ActionListener{
 	private int lives = 3;
 	public static final int SIZE = 50;
-	private int direction = 90;
+	private int direction = 0;
 	private Timer fire;
 	private long fixer;
 	private ArrayList<Bullet> bullets;
