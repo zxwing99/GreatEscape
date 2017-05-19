@@ -21,8 +21,41 @@ public class EndGame extends PApplet implements ActionListener{
 	private boolean wonGame;
 	private int distance;
 	private JFrame window;
+	private DisplayWindow display;
 	
-	public EndGame(boolean won, int far, int length) {
+	public EndGame(DisplayWindow display) {
+		this.display = display;
+//		wonGame = won;
+//		distance = (int)(far/(double)length);
+//		
+//		if(wonGame == true){
+//			message = "You won!";
+//		}else{
+//			message = "You lost, but you got this far into the game: " + distance + "%";
+//		}
+//		menu = new JButton("Return to Menu");
+//		super.runSketch();
+		
+//		PSurfaceAWT surf = (PSurfaceAWT) this.getSurface();
+//		PSurfaceAWT.SmoothCanvas canvas = (PSurfaceAWT.SmoothCanvas) surf.getNative();
+//		window = (JFrame) canvas.getFrame();
+
+//		window.setSize(800, 600);
+//		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		window.setResizable(true);
+		GridLayout layout = new GridLayout(2,1);
+		window.setLayout(layout);
+//		window.add(canvas);
+		window.add(menu);
+//		window.setVisible(true);
+		
+
+		menu.addActionListener(this);
+
+		
+	
+	}
+	public void setUp(boolean won, int far, int length){
 		wonGame = won;
 		distance = (int)(far/(double)length);
 		
@@ -32,26 +65,6 @@ public class EndGame extends PApplet implements ActionListener{
 			message = "You lost, but you got this far into the game: " + distance + "%";
 		}
 		menu = new JButton("Return to Menu");
-		super.runSketch();
-		
-		PSurfaceAWT surf = (PSurfaceAWT) this.getSurface();
-		PSurfaceAWT.SmoothCanvas canvas = (PSurfaceAWT.SmoothCanvas) surf.getNative();
-		window = (JFrame) canvas.getFrame();
-
-		window.setSize(800, 600);
-		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		window.setResizable(true);
-		GridLayout layout = new GridLayout(2,1);
-		window.setLayout(layout);
-		window.add(canvas);
-		window.add(menu);
-		window.setVisible(true);
-		
-
-		menu.addActionListener(this);
-
-		
-	
 	}
 
 	public void draw(){
@@ -65,7 +78,7 @@ public class EndGame extends PApplet implements ActionListener{
 		if (e.getSource() == menu){
 			window.setVisible(false);
 //			dispose();
-			GreatEscape ge = new GreatEscape();
+			display.showGreatEscape();
 
 		}
 	}

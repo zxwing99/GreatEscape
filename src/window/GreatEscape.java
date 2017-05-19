@@ -14,18 +14,19 @@ import processing.core.PApplet;
 public class GreatEscape extends PApplet implements ActionListener{
 	private JButton playL1, playL2, instructions;
 	private JFrame window;
+	private DisplayWindow display;
 
-	public GreatEscape(){
+	public GreatEscape(DisplayWindow display){
 		playL1 = new JButton("Play Level 1");
 		playL2 = new JButton("Play Level 2");
-		instructions = new JButton("Instructions");
-		
-		super.runSketch();
-		
-		PSurfaceAWT surf = (PSurfaceAWT) this.getSurface();
-		PSurfaceAWT.SmoothCanvas canvas = (PSurfaceAWT.SmoothCanvas) surf.getNative();
-		window = (JFrame) canvas.getFrame();
-
+//		instructions = new JButton("Instructions");
+//		
+//		super.runSketch();
+//		
+//		PSurfaceAWT surf = (PSurfaceAWT) this.getSurface();
+//		PSurfaceAWT.SmoothCanvas canvas = (PSurfaceAWT.SmoothCanvas) surf.getNative();
+//		window = (JFrame) canvas.getFrame();
+		this.display = display;
 		window.setSize(500, 500);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setResizable(true);
@@ -37,7 +38,7 @@ public class GreatEscape extends PApplet implements ActionListener{
 		instructions.addActionListener(this);
 		GridLayout layout = new GridLayout(4,4, 10,10);
 		window.setLayout(layout);
-		window.add(canvas);
+//		window.add(canvas);
 		window.add(playL1);
 		window.add(playL2);
 		window.add(instructions);
@@ -52,25 +53,23 @@ public class GreatEscape extends PApplet implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == playL1){
-			window.setVisible(false);
-			new GameFrame(new Level1());
+			display.showGameFrame(new Level1());
+//			window.setVisible(false);
+//			new GameFrame(new Level1());
 			
 		}
 		else if(e.getSource() == playL2){
-			window.setVisible(false);
-			new GameFrame(new Level2());
+//			window.setVisible(false);
+			display.showGameFrame(new Level2());
 			
 		}
 		else if(e.getSource() == instructions){
-			window.setVisible(false);
-			new Instructions(this);
+//			window.setVisible(false);
+			display.showInstructions();
 		}
 	}
 	public void show(){
 		window.setVisible(true);
 	}
 	
-	public static void main(String[] args){
-		new GreatEscape();
-	}
 }

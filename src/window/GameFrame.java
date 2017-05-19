@@ -26,33 +26,45 @@ public class GameFrame extends PApplet implements ActionListener {
 	private int distanceTraveled;
 	private ArrayList<Integer> keys;
 	private int invinsible = 0;
+	private DisplayWindow display;
 	
 
-	public GameFrame(LevelMap m) {
+	public GameFrame(DisplayWindow display) {
 		keys = new ArrayList<Integer>();
-		player = new Player(width / 2, height * 3 / 4);
-		map = m;
-		map.setup();
-		obstacles = map.getObstacles();
-		runSketch();
+		this.display = display;
+//		player = new Player(width / 2, height * 3 / 4);
+//		map = m;
+//		map.setup();
+//		obstacles = map.getObstacles();
+//		runSketch();
 
 		// this.runSketch();
 
-		PSurfaceAWT surf = (PSurfaceAWT) this.getSurface();
-		PSurfaceAWT.SmoothCanvas canvas = (PSurfaceAWT.SmoothCanvas) surf.getNative();
-		window = (JFrame) canvas.getFrame();
-
-		window.setSize(500, 500);
-		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		window.setResizable(true);
-
-		window.setVisible(true);
+//		PSurfaceAWT surf = (PSurfaceAWT) this.getSurface();
+//		PSurfaceAWT.SmoothCanvas canvas = (PSurfaceAWT.SmoothCanvas) surf.getNative();
+//		window = (JFrame) canvas.getFrame();
+//
+//		window.setSize(500, 500);
+//		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		window.setResizable(true);
+//
+//		window.setVisible(true);
 		timer = new Timer(50, this);
-		timer.start();
+//		timer.start();
 		moveTimer = new Timer(40, this);
+//		moveTimer.start();
+	}
+	
+	public void setUp(LevelMap m){
+		player = new Player(width / 2, height * 3 / 4);
+		map = m;
+		map = m;
+		map.setup();
+		obstacles = map.getObstacles();
+		timer.start();
 		moveTimer.start();
 	}
-
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -63,7 +75,7 @@ public class GameFrame extends PApplet implements ActionListener {
 			if (distanceTraveled >= map.getLength()) {
 				timer.stop();
 				window.setVisible(false);
-				EndGame theEnd = new EndGame(true, distanceTraveled, map.getLength());
+				display.showEndGame(true, distanceTraveled, map.getLength());
 			}
 		} else if (e.getSource() == moveTimer) {
 			if (isPressed(KeyEvent.VK_UP))
@@ -120,7 +132,7 @@ public class GameFrame extends PApplet implements ActionListener {
 					moveTimer.stop();
 					window.setVisible(false);
 					// this.dispose();
-					EndGame theEnd = new EndGame(false, distanceTraveled, map.getLength());
+					display.showEndGame(false, distanceTraveled, map.getLength());
 				}
 			}
 		}

@@ -15,17 +15,18 @@ import processing.core.PApplet;
 
 public class Instructions extends PApplet implements ActionListener{
 	private String message;
-	private GreatEscape game;
+	private DisplayWindow display;
 	private JButton mainMenue;
 	private JFrame window;
 	private int xCoord;
 	private int yCoord;
 	private int width2;
 	private int height2;
-	private JButton manMenue;
+//	private JButton manMenue;
 	
-	public Instructions(GreatEscape escape) {
-		game = escape;
+	public Instructions(DisplayWindow display) {
+		this.display = display;
+//		game = escape;
 		xCoord = 0;
 		yCoord = 0;
 		width2 = 40;
@@ -44,27 +45,30 @@ public class Instructions extends PApplet implements ActionListener{
 
 		
 		
-		PSurfaceAWT surf = (PSurfaceAWT) this.getSurface();
-		PSurfaceAWT.SmoothCanvas canvas = (PSurfaceAWT.SmoothCanvas) surf.getNative();
-		window = (JFrame) canvas.getFrame();
-
-		window.setSize(800, 600);
-		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		window.setResizable(true);
-
-		window.setVisible(true);
+//		PSurfaceAWT surf = (PSurfaceAWT) this.getSurface();
+//		PSurfaceAWT.SmoothCanvas canvas = (PSurfaceAWT.SmoothCanvas) surf.getNative();
+//		window = (JFrame) canvas.getFrame();
+//
+//		window.setSize(800, 600);
+//		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		window.setResizable(true);
+//
+//		window.setVisible(true);
 		
 
 		mainMenue.addActionListener(this);
 
 		GridLayout layout = new GridLayout(2,1);
 		window.setLayout(layout);
-		window.add(canvas);
+//		window.add(canvas);
 		window.add(mainMenue);
 		
 		// TODO Auto-generated constructor stub
 	}
 
+	public void show(){
+		
+	}
 	public void draw(){
 		super.background(0,100,0);
 		fill(255);
@@ -75,8 +79,8 @@ public class Instructions extends PApplet implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == mainMenue){
-			window.setVisible(false);
-			game.show();
+//			window.setVisible(false);
+			display.showGreatEscape();
 		}
 		// TODO Auto-generated method stub
 		
