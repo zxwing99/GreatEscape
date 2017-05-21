@@ -66,7 +66,7 @@ public class GameFrame extends PApplet implements ActionListener {
 		moveTimer.start();
 		draw = true;
 //		loop();
-		runSketch();
+//		runSketch();
 //		pause(false);
 	}
 
