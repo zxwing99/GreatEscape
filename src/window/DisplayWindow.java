@@ -1,6 +1,7 @@
 package window;
 import javax.swing.*;
 
+import maps.Level1;
 import maps.LevelMap;
 import processing.awt.PSurfaceAWT;
 
@@ -32,16 +33,16 @@ public class DisplayWindow {
 		window = new JFrame();
 		
 		endGame = new EndGame(this);
-//		endGame.runMe();
+		endGame.runMe();
 		
 		greatEscape = new GreatEscape(this); 
-//		greatEscape.runMe();
+		greatEscape.runMe();
 		
 		instructions = new Instructions(this);
-//		instructions.runMe();
+		instructions.runMe();
 		
 		gameFrame = new GameFrame(this);
-//		gameFrame.runMe();
+		gameFrame.runMe();
 		
 		
 		surf = (PSurfaceAWT) endGame.getSurface();
@@ -58,7 +59,7 @@ public class DisplayWindow {
 		surf4 = (PSurfaceAWT) instructions.getSurface();
 		processingCanvasInstructions = (PSurfaceAWT.SmoothCanvas) surf4.getNative();
 
-		window.setMinimumSize(new Dimension(100,100));
+		window.setMinimumSize(new Dimension(1900,1000));
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setResizable(true);
 		
@@ -79,39 +80,49 @@ public class DisplayWindow {
    
 	    
 	    cardPanel.add(processingCanvasGreatEscape,"1");
-	    cardPanel.add(processingCanvasEnd,"2");
-	    cardPanel.add(processingCanvasGameFrame,"3");
+	    cardPanel.add(processingCanvasGameFrame,"2");
+	    cardPanel.add(processingCanvasEnd,"3");
 	    cardPanel.add(processingCanvasInstructions,"4");
 	    
-	    window.setLayout(new BorderLayout());
-	    
+//	    window.setLayout(new BorderLayout());
+//	    window.setLayout(new BorderLayout());
 	    window.add(cardPanel);
 	    
 	    window.setVisible(true);
 	    
 	    window.setBounds(0, 0, 800, 600);
+	    showGameFrame(new Level1());
 	}
 	
 	public void fixProcessingPanelSizes(Component match) {
 		surf.setSize(match.getWidth(),match.getHeight());
 		surf2.setSize(match.getWidth(),match.getHeight());
+		surf3.setSize(match.getWidth(),match.getHeight());
+		surf4.setSize(match.getWidth(),match.getHeight());
+		
 	}
 	
 	public void showInstructions(){
-		instructions.show();
 		processingCanvasInstructions.requestFocus();
+		instructions.show(window);
+//		instructions.pause(false);
+		
 	}
 	public void showGameFrame(LevelMap m){
 		gameFrame.setUp(m);
 		processingCanvasGameFrame.requestFocus();
+		gameFrame.pause(false);
+//		changePanel("3");
 	}
 	public void showGreatEscape(){
-		greatEscape.setup();
+		greatEscape.setUp(window);
 		processingCanvasGreatEscape.requestFocus();
+//		greatEscape.pause(false);
 	}
 	public void showEndGame(boolean won, int far, int length){
-		endGame.setUp(won, far, length);
+		endGame.setUp(won, far, length, window);
 		processingCanvasEnd.requestFocus();
+//		endGame.pause(false);
 	}
 
 	public static void main(String[] args)

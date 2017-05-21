@@ -17,7 +17,7 @@ public class Instructions extends PApplet implements ActionListener{
 	private String message;
 	private DisplayWindow display;
 	private JButton mainMenue;
-	private JFrame window;
+//	private JFrame window;
 	private int xCoord;
 	private int yCoord;
 	private int width2;
@@ -41,7 +41,7 @@ public class Instructions extends PApplet implements ActionListener{
 		String message8 = "\n"+"GOOD LUCK! DON'T DIE, EVEN THOUGH IT IS ENTIRELY POSSIBLE !";
 		message = message + message2 + message3 + message4 + message5+ message6 + message7+ message8;
 		mainMenue = new JButton("Main Menue");
-		super.runSketch();
+//		super.runSketch();
 
 		
 		
@@ -57,20 +57,24 @@ public class Instructions extends PApplet implements ActionListener{
 		
 
 		mainMenue.addActionListener(this);
-
-		GridLayout layout = new GridLayout(2,1);
-		window.setLayout(layout);
-//		window.add(canvas);
-		window.add(mainMenue);
 		
 		// TODO Auto-generated constructor stub
 	}
 
-	public void show(){
+	public void show(JFrame window){
+		GridLayout layout = new GridLayout(2,1);
+		window.setLayout(layout);
+//		window.add(canvas);
+		window.add(mainMenue);
+	}
+	public void runMe() {
+		super.initSurface();
+		super.surface.startThread();
 		
+		pause(true);
 	}
 	public void draw(){
-		super.background(0,100,0);
+		background(0,100,0);
 		fill(255);
 		textSize(15);
 		text(message, 20, yCoord+30);
@@ -80,9 +84,18 @@ public class Instructions extends PApplet implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == mainMenue){
 //			window.setVisible(false);
+			pause(true);
 			display.showGreatEscape();
 		}
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public void pause(boolean paused) {
+//		keys.clear();
+		if (paused)
+			noLoop();
+		else
+			loop();
 	}
 }

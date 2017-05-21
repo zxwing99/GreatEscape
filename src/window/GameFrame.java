@@ -27,44 +27,56 @@ public class GameFrame extends PApplet implements ActionListener {
 	private ArrayList<Integer> keys;
 	private int invinsible = 0;
 	private DisplayWindow display;
-	
+	private boolean draw = false;
 
 	public GameFrame(DisplayWindow display) {
 		keys = new ArrayList<Integer>();
 		this.display = display;
-//		player = new Player(width / 2, height * 3 / 4);
-//		map = m;
-//		map.setup();
-//		obstacles = map.getObstacles();
-//		runSketch();
+		// player = new Player(width / 2, height * 3 / 4);
+		// map = m;
+		// map.setup();
+		// obstacles = map.getObstacles();
+		// runSketch();
 
 		// this.runSketch();
 
-//		PSurfaceAWT surf = (PSurfaceAWT) this.getSurface();
-//		PSurfaceAWT.SmoothCanvas canvas = (PSurfaceAWT.SmoothCanvas) surf.getNative();
-//		window = (JFrame) canvas.getFrame();
-//
-//		window.setSize(500, 500);
-//		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//		window.setResizable(true);
-//
-//		window.setVisible(true);
+		// PSurfaceAWT surf = (PSurfaceAWT) this.getSurface();
+		// PSurfaceAWT.SmoothCanvas canvas = (PSurfaceAWT.SmoothCanvas)
+		// surf.getNative();
+		// window = (JFrame) canvas.getFrame();
+		//
+		// window.setSize(500, 500);
+		// window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		// window.setResizable(true);
+		//
+		// window.setVisible(true);
 		timer = new Timer(50, this);
-//		timer.start();
+		// timer.start();
 		moveTimer = new Timer(40, this);
-//		moveTimer.start();
+		// moveTimer.start();
 	}
-	
-	public void setUp(LevelMap m){
+
+	public void setUp(LevelMap m) {
 		player = new Player(width / 2, height * 3 / 4);
-		map = m;
 		map = m;
 		map.setup();
 		obstacles = map.getObstacles();
+		distanceTraveled = 0;
 		timer.start();
 		moveTimer.start();
+		draw = true;
+//		loop();
+		runSketch();
+//		pause(false);
 	}
-	
+
+	public void runMe() {
+		super.initSurface();
+		super.surface.startThread();
+
+		pause(true);
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -74,7 +86,8 @@ public class GameFrame extends PApplet implements ActionListener {
 			distanceTraveled = distanceTraveled + MOVEBY;
 			if (distanceTraveled >= map.getLength()) {
 				timer.stop();
-				window.setVisible(false);
+				pause(true);
+				// window.setVisible(false);
 				display.showEndGame(true, distanceTraveled, map.getLength());
 			}
 		} else if (e.getSource() == moveTimer) {
@@ -100,14 +113,14 @@ public class GameFrame extends PApplet implements ActionListener {
 		else
 			invinsible--;
 		ArrayList<Bullet> bullits = player.getbullets();
-		for(int i = 0; i< bullits.size(); i++){
+		for (int i = 0; i < bullits.size(); i++) {
 			Bullet bullit = bullits.get(i);
-			for(int c = 0; c<obstacles.size(); c++){
+			for (int c = 0; c < obstacles.size(); c++) {
 				Obstacle obstacle = obstacles.get(c);
 				int result = obstacle.recieveShot(bullit);
-				if(result != 0){
-//					bullits.remove(i);
-					if(result == 2){
+				if (result != 0) {
+					bullits.remove(i);
+					if (result == 2) {
 						obstacles.remove(c);
 					}
 				}
@@ -117,9 +130,11 @@ public class GameFrame extends PApplet implements ActionListener {
 	}
 
 	public void draw() {
-		super.background(255);
-		map.draw(this);
-		player.draw(this);
+		if (draw) {
+			super.background(255);
+			map.draw(this);
+			player.draw(this);
+		}
 	}
 
 	public void checkPlayer() {
@@ -130,8 +145,9 @@ public class GameFrame extends PApplet implements ActionListener {
 				if (!player.looseALife()) {
 					timer.stop();
 					moveTimer.stop();
-					window.setVisible(false);
+					// window.setVisible(false);
 					// this.dispose();
+					pause(true);
 					display.showEndGame(false, distanceTraveled, map.getLength());
 				}
 			}
@@ -141,7 +157,7 @@ public class GameFrame extends PApplet implements ActionListener {
 	public void keyPressed() {
 		if (!keys.contains(keyCode))
 			keys.add(keyCode);
-		if(KeyEvent.VK_SPACE == keyCode){
+		if (KeyEvent.VK_SPACE == keyCode) {
 			player.shoot();
 		}
 	}
@@ -155,6 +171,16 @@ public class GameFrame extends PApplet implements ActionListener {
 		return keys.contains(code);
 	}
 
+	public void pause(boolean paused) {
+		 keys.clear();
+		if (paused) {
+//			draw = false;
+			noLoop();
+		} else {
+			draw = true;
+			loop();
+		}
+	}
 	// public static void main(String[] args){
 	// new GameFrame(new Level1());
 	// }
