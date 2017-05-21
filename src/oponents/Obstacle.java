@@ -11,7 +11,7 @@ public abstract class Obstacle extends Rectangle2D.Double{
 	private int stability;
 	public Obstacle(int x, int y, int sizeX, int sizeY){
 		super(x, y, sizeX, sizeY);
-		stability = 3;
+		stability = Integer.MAX_VALUE;
 	}
 
 	public boolean collisionTester(Rectangle2D.Double rect) {
