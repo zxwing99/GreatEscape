@@ -16,7 +16,7 @@ public class Level1 extends LevelMap {
 	
 	public Level1(){
 		super();
-		super.setLength(1600);
+		super.setLength(900);
 	}
 
 	public void draw(PApplet g) {
@@ -33,20 +33,22 @@ public class Level1 extends LevelMap {
 
 	@Override
 	public void setup() {
-		obstacles.add(new Block(200,-200, 400, 5));
-		obstacles.add(new Block(0, -400, 200, 5));
-		obstacles.add(new Block(0, -1000, 200, 5));
-		obstacles.add(new Block(200, -1200, 200, 5));
-		obstacles.add(new Block(200, -1400, 200, 5));
-		obstacles.add(new Block(600, -1400, 200, 5));
-		obstacles.add(new Block(200, -1000, 5, 400));
-		obstacles.add(new Block(400, -1200, 5, 600));
-		obstacles.add(new Block(200, -1000, 5, 400));
-		obstacles.add(new Block(600, -1000, 5, 800));
-		obstacles.add(new Shooter(900,-100,50,50,315));
-		obstacles.add(new Shooter(1500,-100,50,50,0));
+		obstacles.add(new Block(320, 400, 10, 100));
+		obstacles.add(new Block(420, 350, 10, 100));
+		obstacles.add(new Block(320, 100, 10, 50));
+		obstacles.add(new Block(0, 95, 330, 10));
+		obstacles.add(new Block(220, -400, 10, 505));
+		obstacles.add(new Block(325, -55, 75, 10));
+		obstacles.add(new Block(325, -355, 75, 10));
+		obstacles.add(new Block(225, -205, 75, 10));
+		obstacles.add(new Block(390, -350, 10, 405));
+		obstacles.add(new Block(0,-500,500, 5));
+		//obstacles.add(new Block(200, -1000, 5, 400));
+		//obstacles.add(new Block(600, -1000, 5, 800));
+		obstacles.add(new Shooter(425,125,50,50,270));
+		obstacles.add(new Shooter(150,300,50,50,270));
 		obstacles.add(new Shooter(900,-500,50,50,90));
-		obstacles.add(new Shooter(100,-700,50,50,315));
+		//obstacles.add(new Shooter(100,-700,50,50,315));
 	}
 	
 	
