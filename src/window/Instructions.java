@@ -16,13 +16,13 @@ import processing.core.PApplet;
 public class Instructions extends PApplet implements ActionListener{
 	private String message;
 	private Main display;
-	private JButton mainMenue;
-//	private JFrame window;
+	private JButton mainMenu;
+	private JFrame window;
 	private int xCoord;
 	private int yCoord;
 	private int width2;
 	private int height2;
-//	private JButton manMenue;
+
 	
 	public Instructions(Main display) {
 		this.display = display;
@@ -40,8 +40,11 @@ public class Instructions extends PApplet implements ActionListener{
 		String message7 = "\n"+"However, if you shoot your opponent, they will die with one shot.";
 		String message8 = "\n"+"GOOD LUCK! DON'T DIE, EVEN THOUGH IT IS ENTIRELY POSSIBLE !";
 		message = message + message2 + message3 + message4 + message5+ message6 + message7+ message8;
-		mainMenue = new JButton("Main Menue");
+		mainMenu = new JButton("Main Menu");
+		mainMenu.addActionListener(this);
 		
+	}
+	// TODO Auto-generated constructor stub
 //		super.runSketch();
 //		PSurfaceAWT surf = (PSurfaceAWT) this.getSurface();
 //		PSurfaceAWT.SmoothCanvas canvas = (PSurfaceAWT.SmoothCanvas) surf.getNative();
@@ -52,18 +55,14 @@ public class Instructions extends PApplet implements ActionListener{
 //		window.setResizable(true);
 //
 //		window.setVisible(true);
-		
-
-		mainMenue.addActionListener(this);
-		
-		// TODO Auto-generated constructor stub
-	}
-
+	
 	public void show(JFrame window){
+		this.window = window;
 		GridLayout layout = new GridLayout(2,1);
 		window.setLayout(layout);
 //		window.add(canvas);
-		window.add(mainMenue);
+		window.add(mainMenu);
+		
 	}
 	
 	public void runMe() {
@@ -81,8 +80,10 @@ public class Instructions extends PApplet implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == mainMenue){
+		if (e.getSource() == mainMenu){
 //			window.setVisible(false);
+			//window.clear();
+			//.remove(mainMenu);
 			pause(true);
 			display.showGreatEscape();
 		}
@@ -91,7 +92,7 @@ public class Instructions extends PApplet implements ActionListener{
 	}
 	
 	public void pause(boolean paused) {
-//		keys.clear();
+		//keys.clear();
 		if (paused)
 			noLoop();
 		else

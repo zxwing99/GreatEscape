@@ -82,7 +82,7 @@ public class Main {
 	    
 	    window.setVisible(true);
 	    
-	    window.setBounds(0, 0,500, 500);
+	    window.setBounds(0, 0, 500, 500);
 	    
 	    //showGreatEscape();
 	}
@@ -96,26 +96,31 @@ public class Main {
 	}
 	
 	public void showInstructions(){
+		((CardLayout)cardPanel.getLayout()).show(cardPanel,"4");
 		processingCanvasInstructions.requestFocus();
 		instructions.show(window);
-//		instructions.pause(false);
+		instructions.pause(false);
 		
 	}
 	
 	public void showGameFrame(LevelMap m){
+		((CardLayout)cardPanel.getLayout()).show(cardPanel,"2");
 		gameFrame.setUp(m);
 		processingCanvasGameFrame.requestFocus();
 		gameFrame.pause(false);
 //		changePanel("3");
+		//a
 	}
 	
 	public void showGreatEscape(){
+		((CardLayout)cardPanel.getLayout()).show(cardPanel,"1");
 		//greatEscape.setUp(window);
 		//processingCanvasGreatEscape.requestFocus();
 //		greatEscape.pause(false);
 	}
 	
 	public void showEndGame(boolean won, int far, int length){
+		((CardLayout)cardPanel.getLayout()).show(cardPanel,"3");
 		endGame.setUp(won, far, length, window);
 		processingCanvasEnd.requestFocus();
 //		endGame.pause(false);
