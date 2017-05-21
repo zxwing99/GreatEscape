@@ -76,7 +76,7 @@ public class Main {
 	    cardPanel.add(processingCanvasEnd,"3");
 	    cardPanel.add(processingCanvasInstructions,"4");
 	    
-	    window.setLayout(new BorderLayout());
+	    //window.setLayout(new BorderLayout());
 
 	    window.add(cardPanel);
 	    
@@ -96,6 +96,7 @@ public class Main {
 	}
 	
 	public void showInstructions(){
+		
 		((CardLayout)cardPanel.getLayout()).show(cardPanel,"4");
 		processingCanvasInstructions.requestFocus();
 		instructions.show(window);
@@ -104,26 +105,27 @@ public class Main {
 	}
 	
 	public void showGameFrame(LevelMap m){
+		
 		((CardLayout)cardPanel.getLayout()).show(cardPanel,"2");
 		gameFrame.setUp(m);
-		processingCanvasGameFrame.requestFocus();
 		gameFrame.pause(false);
-//		changePanel("3");
-		//a
+		processingCanvasGameFrame.requestFocus();
+		
 	}
 	
 	public void showGreatEscape(){
 		((CardLayout)cardPanel.getLayout()).show(cardPanel,"1");
 		//greatEscape.setUp(window);
 		//processingCanvasGreatEscape.requestFocus();
-//		greatEscape.pause(false);
+		//greatEscape.pause(false);
 	}
 	
 	public void showEndGame(boolean won, int far, int length){
+		
 		((CardLayout)cardPanel.getLayout()).show(cardPanel,"3");
 		endGame.setUp(won, far, length, window);
 		processingCanvasEnd.requestFocus();
-//		endGame.pause(false);
+		endGame.pause(false);
 	}
 
 	public static void main(String[] args)

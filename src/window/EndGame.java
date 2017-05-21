@@ -58,21 +58,14 @@ public class EndGame extends PApplet implements ActionListener {
 
 	public void setUp(boolean won, int far, int length, JFrame window) {
 		wonGame = won;
-		distance = (int) (far / (double) length);
+		distance = (int) (far*100 / (double) length);
 
 		if (wonGame == true) {
 			message = "You won!";
 		} else {
 			message = "You lost, but you got this far into the game: " + distance + "%";
 		}
-		menu = new JButton("Return to Menu");
-		GridLayout layout = new GridLayout(2, 1);
-		window.setLayout(layout);
-		// window.add(canvas);
-		window.add(menu);
-		// window.setVisible(true);
 
-		menu.addActionListener(this);
 	}
 
 	public void draw() {

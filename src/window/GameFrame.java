@@ -1,5 +1,6 @@
 package window;
 
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -32,6 +33,7 @@ public class GameFrame extends PApplet implements ActionListener {
 	public GameFrame(Main display) {
 		keys = new ArrayList<Integer>();
 		this.display = display;
+		
 		// player = new Player(width / 2, height * 3 / 4);
 		// map = m;
 		// map.setup();
@@ -57,7 +59,7 @@ public class GameFrame extends PApplet implements ActionListener {
 	}
 
 	public void setUp(LevelMap m) {
-		player = new Player(width / 2, height * 3 / 4);
+		player = new Player(225, 400);
 		map = m;
 		map.setup();
 		obstacles = map.getObstacles();
@@ -87,7 +89,8 @@ public class GameFrame extends PApplet implements ActionListener {
 			if (distanceTraveled >= map.getLength()) {
 				timer.stop();
 				pause(true);
-				// window.setVisible(false);
+			
+
 				display.showEndGame(true, distanceTraveled, map.getLength());
 			}
 		} else if (e.getSource() == moveTimer) {

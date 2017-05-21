@@ -22,7 +22,7 @@ public class Instructions extends PApplet implements ActionListener{
 	private int yCoord;
 	private int width2;
 	private int height2;
-
+	private boolean buttonAdded = true;
 	
 	public Instructions(Main display) {
 		this.display = display;
@@ -42,6 +42,7 @@ public class Instructions extends PApplet implements ActionListener{
 		message = message + message2 + message3 + message4 + message5+ message6 + message7+ message8;
 		mainMenu = new JButton("Main Menu");
 		mainMenu.addActionListener(this);
+
 		
 	}
 	// TODO Auto-generated constructor stub
@@ -58,10 +59,13 @@ public class Instructions extends PApplet implements ActionListener{
 	
 	public void show(JFrame window){
 		this.window = window;
-		GridLayout layout = new GridLayout(2,1);
+		GridLayout layout = new GridLayout();
 		window.setLayout(layout);
-//		window.add(canvas);
-		window.add(mainMenu);
+		if(buttonAdded == true){
+			window.add(mainMenu);
+			buttonAdded = false;
+		}
+		
 		
 	}
 	
@@ -78,21 +82,16 @@ public class Instructions extends PApplet implements ActionListener{
 		text(message, 20, yCoord+30);
 	}
 
-	@Override
+
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == mainMenu){
-//			window.setVisible(false);
-			//window.clear();
-			//.remove(mainMenu);
 			pause(true);
 			display.showGreatEscape();
 		}
-		// TODO Auto-generated method stub
-		
+
 	}
 	
 	public void pause(boolean paused) {
-		//keys.clear();
 		if (paused)
 			noLoop();
 		else
