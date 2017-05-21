@@ -26,10 +26,10 @@ public class GameFrame extends PApplet implements ActionListener {
 	private int distanceTraveled;
 	private ArrayList<Integer> keys;
 	private int invinsible = 0;
-	private DisplayWindow display;
+	private Main display;
 	private boolean draw = false;
 
-	public GameFrame(DisplayWindow display) {
+	public GameFrame(Main display) {
 		keys = new ArrayList<Integer>();
 		this.display = display;
 		// player = new Player(width / 2, height * 3 / 4);

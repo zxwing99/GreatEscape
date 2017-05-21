@@ -12,7 +12,7 @@ import java.awt.event.ComponentListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-public class DisplayWindow {
+public class Main {
 
 	private JFrame window;
 	
@@ -29,7 +29,7 @@ public class DisplayWindow {
 	private PSurfaceAWT.SmoothCanvas processingCanvasEnd, processingCanvasGreatEscape, processingCanvasInstructions;  // These are swing components (think of it as the canvas that the PApplet draws on to)
 	private PSurfaceAWT.SmoothCanvas processingCanvasGameFrame;   // They are what is literally in the window
 	
-	public DisplayWindow() {
+	public Main() {
 		window = new JFrame();
 		
 		endGame = new EndGame(this);
@@ -127,7 +127,7 @@ public class DisplayWindow {
 
 	public static void main(String[] args)
 	{
-		DisplayWindow m = new DisplayWindow();
+		Main m = new Main();
 	}
   
 //	public void changePanel(String name) {

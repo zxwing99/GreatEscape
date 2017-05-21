@@ -20,10 +20,10 @@ public class EndGame extends PApplet implements ActionListener {
 	private boolean wonGame;
 	private int distance;
 	// private JFrame window;
-	private DisplayWindow display;
+	private Main display;
 	private boolean draw = false;
 
-	public EndGame(DisplayWindow display) {
+	public EndGame(Main display) {
 		this.display = display;
 		// wonGame = won;
 		// distance = (int)(far/(double)length);

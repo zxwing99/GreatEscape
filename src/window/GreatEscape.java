@@ -14,10 +14,10 @@ import processing.core.PApplet;
 public class GreatEscape extends PApplet implements ActionListener {
 	private JButton playL1, playL2, instructions;
 	// private JFrame window;
-	private DisplayWindow display;
+	private Main display;
 	boolean draw = false;
 
-	public GreatEscape(DisplayWindow display) {
+	public GreatEscape(Main display) {
 		playL1 = new JButton("Play Level 1");
 		playL2 = new JButton("Play Level 2");
 		instructions = new JButton("Instructions");

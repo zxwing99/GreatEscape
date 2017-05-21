@@ -15,7 +15,7 @@ import processing.core.PApplet;
 
 public class Instructions extends PApplet implements ActionListener{
 	private String message;
-	private DisplayWindow display;
+	private Main display;
 	private JButton mainMenue;
 //	private JFrame window;
 	private int xCoord;
@@ -24,7 +24,7 @@ public class Instructions extends PApplet implements ActionListener{
 	private int height2;
 //	private JButton manMenue;
 	
-	public Instructions(DisplayWindow display) {
+	public Instructions(Main display) {
 		this.display = display;
 //		game = escape;
 		xCoord = 0;
