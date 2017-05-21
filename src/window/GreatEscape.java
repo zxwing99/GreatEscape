@@ -51,6 +51,8 @@ public class GreatEscape extends JPanel implements ActionListener {
 		}
 	}
 	
+	
+	
 	// window.setVisible(true);
 	//pause(true);
 	// window.setVisible(false);
