@@ -90,7 +90,7 @@ public class DisplayWindow {
 	    
 	    window.setVisible(true);
 	    
-	    window.setBounds(0, 0, 800, 600);
+	    window.setBounds(0, 0,500, 500);
 	    showGameFrame(new Level1());
 	}
 	
