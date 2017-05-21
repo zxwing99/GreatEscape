@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import maps.LevelMap;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -81,11 +82,12 @@ public class Instructions extends PApplet implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == mainMenu){
-//			window.setVisible(false);
+			//window.setVisible(false);
 			//window.clear();
 			//.remove(mainMenu);
 			pause(true);
 			display.showGreatEscape();
+			//display.showGameFrame(m);
 		}
 		// TODO Auto-generated method stub
 		

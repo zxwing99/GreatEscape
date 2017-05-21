@@ -48,6 +48,7 @@ public class GreatEscape extends JPanel implements ActionListener {
 			display.showGameFrame(new Level2());
 		} else if (e.getSource() == instructions) {		
 			display.showInstructions();
+		
 		}
 	}
 	
