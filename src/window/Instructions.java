@@ -41,10 +41,8 @@ public class Instructions extends PApplet implements ActionListener{
 		String message8 = "\n"+"GOOD LUCK! DON'T DIE, EVEN THOUGH IT IS ENTIRELY POSSIBLE !";
 		message = message + message2 + message3 + message4 + message5+ message6 + message7+ message8;
 		mainMenue = new JButton("Main Menue");
+		
 //		super.runSketch();
-
-		
-		
 //		PSurfaceAWT surf = (PSurfaceAWT) this.getSurface();
 //		PSurfaceAWT.SmoothCanvas canvas = (PSurfaceAWT.SmoothCanvas) surf.getNative();
 //		window = (JFrame) canvas.getFrame();
@@ -67,12 +65,13 @@ public class Instructions extends PApplet implements ActionListener{
 //		window.add(canvas);
 		window.add(mainMenue);
 	}
+	
 	public void runMe() {
 		super.initSurface();
 		super.surface.startThread();
-		
 		pause(true);
 	}
+	
 	public void draw(){
 		background(0,100,0);
 		fill(255);

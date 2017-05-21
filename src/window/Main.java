@@ -19,15 +19,16 @@ public class Main {
 	private JPanel cardPanel;
 	
 	private GreatEscape greatEscape;
-	private EndGame endGame;  // These are PApplets - you use these to do regular processing stuff
-	private GameFrame gameFrame;  // Even though we've named them "DrawingSurface", they are better thought of as "Drawer"s - like a Graphics object.
+	
+	private EndGame endGame;  
+	private GameFrame gameFrame;  
 	private Instructions instructions;
 	
-	private PSurfaceAWT surf;  // These are the "portals" through which the PApplets draw on the canvas
-	private PSurfaceAWT surf2, surf3, surf4;
-	
-	private PSurfaceAWT.SmoothCanvas processingCanvasEnd, processingCanvasGreatEscape, processingCanvasInstructions;  // These are swing components (think of it as the canvas that the PApplet draws on to)
-	private PSurfaceAWT.SmoothCanvas processingCanvasGameFrame;   // They are what is literally in the window
+	private PSurfaceAWT surf;  
+	private PSurfaceAWT surf2,  surf3;
+
+	private PSurfaceAWT.SmoothCanvas processingCanvasEnd,  processingCanvasInstructions;  
+	private PSurfaceAWT.SmoothCanvas processingCanvasGameFrame;   
 	
 	public Main() {
 		window = new JFrame();
@@ -35,29 +36,20 @@ public class Main {
 		endGame = new EndGame(this);
 		endGame.runMe();
 		
-		greatEscape = new GreatEscape(this); 
-		greatEscape.runMe();
+		surf = (PSurfaceAWT) endGame.getSurface();
+		processingCanvasEnd = (PSurfaceAWT.SmoothCanvas) surf.getNative();
 		
 		instructions = new Instructions(this);
 		instructions.runMe();
 		
+		surf3 = (PSurfaceAWT) instructions.getSurface();
+		processingCanvasInstructions = (PSurfaceAWT.SmoothCanvas) surf3.getNative();
+		
 		gameFrame = new GameFrame(this);
 		gameFrame.runMe();
 		
-		
-		surf = (PSurfaceAWT) endGame.getSurface();
-		processingCanvasEnd = (PSurfaceAWT.SmoothCanvas) surf.getNative();
-		 window = (JFrame)processingCanvasEnd.getFrame();
-		
 		surf2 = (PSurfaceAWT) gameFrame.getSurface();
 		processingCanvasGameFrame = (PSurfaceAWT.SmoothCanvas) surf2.getNative();
-		
-		surf3 = (PSurfaceAWT) greatEscape.getSurface();
-		processingCanvasGreatEscape = (PSurfaceAWT.SmoothCanvas) surf3.getNative();
-		 window = (JFrame)processingCanvasEnd.getFrame();
-		
-		surf4 = (PSurfaceAWT) instructions.getSurface();
-		processingCanvasInstructions = (PSurfaceAWT.SmoothCanvas) surf4.getNative();
 
 		window.setMinimumSize(new Dimension(1900,1000));
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -77,28 +69,29 @@ public class Main {
 
 	    });
 
-   
+	    greatEscape = new GreatEscape(this); 
 	    
-	    cardPanel.add(processingCanvasGreatEscape,"1");
+	    cardPanel.add(greatEscape,"1");
 	    cardPanel.add(processingCanvasGameFrame,"2");
 	    cardPanel.add(processingCanvasEnd,"3");
 	    cardPanel.add(processingCanvasInstructions,"4");
 	    
-//	    window.setLayout(new BorderLayout());
-//	    window.setLayout(new BorderLayout());
+	    window.setLayout(new BorderLayout());
+
 	    window.add(cardPanel);
 	    
 	    window.setVisible(true);
 	    
 	    window.setBounds(0, 0,500, 500);
-	    showGameFrame(new Level1());
+	    
+	    //showGreatEscape();
 	}
 	
 	public void fixProcessingPanelSizes(Component match) {
 		surf.setSize(match.getWidth(),match.getHeight());
 		surf2.setSize(match.getWidth(),match.getHeight());
 		surf3.setSize(match.getWidth(),match.getHeight());
-		surf4.setSize(match.getWidth(),match.getHeight());
+		//surf4.setSize(match.getWidth(),match.getHeight());
 		
 	}
 	
@@ -108,17 +101,20 @@ public class Main {
 //		instructions.pause(false);
 		
 	}
+	
 	public void showGameFrame(LevelMap m){
 		gameFrame.setUp(m);
 		processingCanvasGameFrame.requestFocus();
 		gameFrame.pause(false);
 //		changePanel("3");
 	}
+	
 	public void showGreatEscape(){
-		greatEscape.setUp(window);
-		processingCanvasGreatEscape.requestFocus();
+		//greatEscape.setUp(window);
+		//processingCanvasGreatEscape.requestFocus();
 //		greatEscape.pause(false);
 	}
+	
 	public void showEndGame(boolean won, int far, int length){
 		endGame.setUp(won, far, length, window);
 		processingCanvasEnd.requestFocus();
