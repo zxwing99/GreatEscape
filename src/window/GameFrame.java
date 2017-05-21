@@ -28,6 +28,11 @@ public class GameFrame extends PApplet implements ActionListener {
 	private int invinsible = 0;
 	
 
+	/**
+	 * 
+	 * @param m - A map in the game's window
+	 * Creates a new game window in which to play the GreatEscape
+	 */
 	public GameFrame(LevelMap m) {
 		keys = new ArrayList<Integer>();
 		player = new Player(225,400);
@@ -54,6 +59,9 @@ public class GameFrame extends PApplet implements ActionListener {
 	}
 
 	@Override
+	/**
+	 * @param e - When 
+	 */
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		// moves the map up

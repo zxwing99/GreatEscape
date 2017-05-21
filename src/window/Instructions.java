@@ -24,6 +24,12 @@ public class Instructions extends PApplet implements ActionListener{
 	private int height2;
 	private JButton manMenue;
 	
+	
+	/**
+	 * @precondition - A Menu Screen pops up giving the player the options to play Level 1, Level 2, or go to the Instruction Screen.
+	 * @param escape - Creates an instance of GreatEscape for which the instructions are showing.
+	 * @postcondition - By clicking thebutton labelled "Instructions", it will lead you to a screen with the instructions listed, and an button to go back to the main screen.
+	 */
 	public Instructions(GreatEscape escape) {
 		game = escape;
 		xCoord = 0;
@@ -65,6 +71,9 @@ public class Instructions extends PApplet implements ActionListener{
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * The draw method draws out the content to the screen.
+	 */
 	public void draw(){
 		super.background(0,100,0);
 		fill(255);
@@ -73,6 +82,10 @@ public class Instructions extends PApplet implements ActionListener{
 	}
 
 	@Override
+	/**
+	 * The actionPerformed method makes the screen contents printed out to the screen.
+	 * @param e - When done, allows the window to be shown.
+	 */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == mainMenue){
 			window.setVisible(false);
