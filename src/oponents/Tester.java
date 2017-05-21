@@ -19,6 +19,9 @@ public class Tester extends PApplet implements ActionListener {
 	private Timer moveTimer;
 	private boolean up = false, down = false, left = false, right = false;
 
+	/**
+	 * Creates a window with which to test the enemies
+	 */
 	public Tester() {
 		shooter = new Shooter(100, 100, 20, 20, 45);
 		player = new Player(50, 50);
@@ -26,12 +29,18 @@ public class Tester extends PApplet implements ActionListener {
 		moveTimer.start();
 	}
 
+	/**
+	 * Draws the content to the screen
+	 */
 	public void draw() {
 		super.background(255);
 		shooter.draw(this);
 		player.draw(this);
 	}
 
+	/**
+	 * Checks to see whether the 'wasd' keys were pressed
+	 */
 	public void keyPressed() {
 		if (key == CODED) {
 			if (keyCode == 'd') {
@@ -53,6 +62,10 @@ public class Tester extends PApplet implements ActionListener {
 		}
 	}
 
+	/**
+	 * Executes the tester
+	 * @param args
+	 */
 	public static void main(String args[]) {
 		Tester drawing = new Tester();
 		drawing.runSketch();

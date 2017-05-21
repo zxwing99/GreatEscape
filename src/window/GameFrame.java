@@ -60,7 +60,8 @@ public class GameFrame extends PApplet implements ActionListener {
 
 	@Override
 	/**
-	 * @param e - When 
+	 * @param e - When a certain action is performed, the character will move (depending on which key is pressed)
+	 * The actionPerformed method allows the character to move around the screen while playing the game.
 	 */
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -111,13 +112,19 @@ public class GameFrame extends PApplet implements ActionListener {
 		}
 
 	}
-
+	
+	/**
+	 * Creates the screen and draws the content
+	 */
 	public void draw() {
 		super.background(255);
 		map.draw(this);
 		player.draw(this);
 	}
 
+	/**
+	 * Checks the characters actions and decides whether or not the character shoujld die or not based on its actions.
+	 */
 	public void checkPlayer() {
 		for (Obstacle obstacle : obstacles) {
 			if (obstacle.collisionTester(player)) {
@@ -133,7 +140,10 @@ public class GameFrame extends PApplet implements ActionListener {
 			}
 		}
 	}
-
+	
+	/**
+	 * Checks to see if a certain key is pressed.
+	 */
 	public void keyPressed() {
 		if (!keys.contains(keyCode))
 			keys.add(keyCode);
@@ -141,12 +151,20 @@ public class GameFrame extends PApplet implements ActionListener {
 			player.shoot();
 		}
 	}
-
+	
+	/**
+	 * Checks to see if a key has been pressed.
+	 */
 	public void keyReleased() {
 		while (keys.contains(keyCode))
 			keys.remove(new Integer(keyCode));
 	}
 
+	/**
+	 * 
+	 * @param code - The integer value that represents a certain key.
+	 * @return - Whether or not the certain key has been pressed
+	 */
 	public boolean isPressed(Integer code) {
 		return keys.contains(code);
 	}

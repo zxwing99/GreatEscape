@@ -19,6 +19,14 @@ public class Shooter extends Block implements ActionListener {
 	private long fixer;
 	private ArrayList<Bullet> bullets;
 
+	/**
+	 * Creates a weapon used to shoot the character
+	 * @param x - Represents the x-Coordinate of the weapon
+	 * @param y - Represents the y-Coordinate of the weapon
+	 * @param sizeX - Represents the width of the weapon
+	 * @param sizeY - Represents the height of the weapon
+	 * @param direction - Represents the direction the weapon is oriented
+	 */
 	public Shooter(int x, int y, int sizeX, int sizeY, int direction) {
 		super(x, y, sizeX, sizeY);
 		this.direction = direction;
@@ -28,6 +36,9 @@ public class Shooter extends Block implements ActionListener {
 		fire.start();
 	}
 
+	/**
+	 * Makes the weapon shoot a bullet at the character
+	 */
 	private void shoot() {
 		if (direction<45||direction>315)
 		bullets.add(new Bullet((int) (x+width), (int)(y+height/2)-3, direction));
@@ -43,6 +54,10 @@ public class Shooter extends Block implements ActionListener {
 	}
 
 	@Override
+	
+	/**
+	 * Performs the action of shooting
+	 */
 	public void actionPerformed(ActionEvent e) {
 		for (Bullet bullet : bullets) {
 			bullet.act();
@@ -54,6 +69,11 @@ public class Shooter extends Block implements ActionListener {
 	}
 
 	@Override
+	
+	/**
+	 * Draws the content to the screen
+	 * @param g - Represents the object on which the content is drawn
+	 */
 	public void draw(PApplet g) {
 		super.draw(g);
 		g.pushMatrix();
@@ -67,6 +87,10 @@ public class Shooter extends Block implements ActionListener {
 		// TODO Auto-generated method stub
 	}
 	
+	/**
+	 * Represents whether or not the weapon collided with anything
+	 * @param rect - Represents the rectangular area in which the weapon intersects with anything
+	 */
 	public boolean collisionTester(Rectangle2D.Double rect) {
 		if(super.collisionTester(rect)){
 			return true;
@@ -79,6 +103,11 @@ public class Shooter extends Block implements ActionListener {
 			return false;
 		}
 	}
+	
+	/**
+	 * Changes the vertical position of the shooter
+	 * @param y - Represents the number of units the y-Coordinate of the shooter is changed by
+	 */
 	public void move(int y){
 		super.move(y);
 		for(Bullet bullet :bullets){

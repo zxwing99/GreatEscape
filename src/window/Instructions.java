@@ -28,7 +28,7 @@ public class Instructions extends PApplet implements ActionListener{
 	/**
 	 * @precondition - A Menu Screen pops up giving the player the options to play Level 1, Level 2, or go to the Instruction Screen.
 	 * @param escape - Creates an instance of GreatEscape for which the instructions are showing.
-	 * @postcondition - By clicking thebutton labelled "Instructions", it will lead you to a screen with the instructions listed, and an button to go back to the main screen.
+	 * @postcondition - By clicking the button labeled "Instructions", it will lead you to a screen with the instructions listed, and an button to go back to the main screen.
 	 */
 	public Instructions(GreatEscape escape) {
 		game = escape;

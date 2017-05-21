@@ -14,11 +14,17 @@ public class Level1 extends LevelMap {
 //	private ArrayList<Obstacle> obstacles;
 	//public int finY = -1600;
 	
+	/**
+	 * Creates the first level of the game
+	 */
 	public Level1(){
 		super();
 		super.setLength(900);
 	}
 
+	/**
+	 * Draws the content of the first level to the screen
+	 */
 	public void draw(PApplet g) {
 		g.pushMatrix();
 		g.pushStyle();
@@ -32,6 +38,9 @@ public class Level1 extends LevelMap {
 	}
 
 	@Override
+	/**
+	 * Sets up the obstacles
+	 */
 	public void setup() {
 		obstacles.add(new Block(320, 400, 10, 100));
 		obstacles.add(new Block(420, 350, 10, 100));

@@ -22,6 +22,12 @@ public class EndGame extends PApplet implements ActionListener{
 	private int distance;
 	private JFrame window;
 	
+	/**
+	 * Constructors - Constructs an instance of EndGame (what happens when the character dies)
+	 * @param won - Whether or not the character reached the end of the game without dying
+	 * @param far - Represents how far the character made it
+	 * @param length - Represents the distance the character moved
+	 */
 	public EndGame(boolean won, int far, int length) {
 		wonGame = won;
 		distance = (int)(far/(double)length);
@@ -53,7 +59,10 @@ public class EndGame extends PApplet implements ActionListener{
 		
 	
 	}
-
+	
+	/**
+	 * Draws and creates the screen on which endGame is executed
+	 */
 	public void draw(){
 		super.background(0,100,0);
 		fill(255);
@@ -61,6 +70,10 @@ public class EndGame extends PApplet implements ActionListener{
 		text(message, 20, 30);
 	}
 	
+	
+	/**
+	 * Checks to see whether the game was lost or not then creates a new instance of GreatEscape
+	 */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == menu){
 			window.setVisible(false);

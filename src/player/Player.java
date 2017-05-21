@@ -17,6 +17,10 @@ public class Player extends Rectangle2D.Double implements ActionListener{
 	private Timer fire;
 	private ArrayList<Bullet> bullets;
 	
+	/**
+	 * @param x - Represents the x-Coordinate of the player
+	 * @param y - Represents the y-Coordinate of the player
+	 */
 	public Player (int x, int y){
 		super(x, y, SIZE, SIZE);
 		bullets = new ArrayList<Bullet>();
@@ -24,25 +28,54 @@ public class Player extends Rectangle2D.Double implements ActionListener{
 		fire.start();
 	}
 	
+	/**
+	 * Makes the character move forward three units (technically moving backward but appears to be moving forward)
+	 */
 	public void moveFoward(){
 		y-=3;
 	}
+	
+	/**
+	 * Makes the character move to the right by three units (increasing the x-Coordinate)
+	 */
 	public void moveRight(){
 		x+=3;
 	}
+	
+	/**
+	 * Makes the character move backwards (technically moving forward but appears to be backward)
+	 */
 	public void moveBackward(){
 		y+=3;
 	}
+	
+	/**
+	 * Makes the character move three units to the left (decreases the x-Coordinate)
+	 */
 	public void moveLeft(){
 		x-=3;
 	}
 	
+	/**
+	 * Returns the bullets being used
+	 * @return - Returns the bullets 
+	 */
 	public ArrayList<Bullet> getbullets(){
 		return bullets;
 	}
+	
+	/**
+	 * Sets the direction of the player
+	 * @param d - Sets the value (amount) that sets the player's orientation
+	 */
 	public void setDirection(int d){
 		direction = d;
 	}
+	
+	/**
+	 * Draws and puts out content to the screen
+	 * @param g - Represents the PApplet to which the screen is drawn
+	 */
 	public void draw(PApplet g){
 		g.pushMatrix();
 		g.pushStyle();
@@ -63,6 +96,10 @@ public class Player extends Rectangle2D.Double implements ActionListener{
 		g.popStyle();
 	}
 	
+	/**
+	 * This method returns whether or not the player lost its life
+	 * @return - Whether or not the player lost its life
+	 */
 	public boolean looseALife(){
 		lives--;
 		if (lives<=0){
@@ -71,18 +108,27 @@ public class Player extends Rectangle2D.Double implements ActionListener{
 		return true;
 	}
 	
+	/**
+	 * This method increases the number of lives that the player has.
+	 */
 	public void gainLife(){
 		if (lives>0&&lives<3)
 			lives++;
 	}
 
 	@Override
+	/**
+	 * This method performs a certain action
+	 */
 	public void actionPerformed(ActionEvent e) {
 		for (Bullet bullet : bullets) {
 			bullet.act();
 		}
 	}
 
+	/**
+	 * This method shoots the bullets at the enemy
+	 */
 	public void shoot() {
 		if (direction<45||direction>315)
 		bullets.add(new Bullet((int) (x+width), (int)(y+height/2)-3, direction));
