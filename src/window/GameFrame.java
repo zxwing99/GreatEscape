@@ -30,7 +30,7 @@ public class GameFrame extends PApplet implements ActionListener {
 
 	public GameFrame(LevelMap m) {
 		keys = new ArrayList<Integer>();
-		player = new Player(width / 2, height * 3 / 4);
+		player = new Player(225,400);
 		map = m;
 		map.setup();
 		obstacles = map.getObstacles();
