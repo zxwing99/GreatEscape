@@ -84,7 +84,7 @@ public class Main {
 	    
 	    window.setBounds(0, 0, 500, 500);
 	    
-	    //showGreatEscape();
+	    showInstructions();
 	}
 	
 	public void fixProcessingPanelSizes(Component match) {
