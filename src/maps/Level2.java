@@ -7,12 +7,18 @@ import processing.core.PApplet;
 
 public class Level2 extends LevelMap{
 
-	
+	/**
+	 * Creates the second level using the superclass' constructor
+	 */
 	public Level2() {
 		super();
 		super.setLength(2000);
 	}
 	
+	/**
+	 * Draws the content to the screen
+	 * @param g - Represents the object the content is drawn on
+	 */
 	public void draw(PApplet g) {
 		g.pushMatrix();
 		g.pushStyle();
@@ -26,6 +32,10 @@ public class Level2 extends LevelMap{
 	}
 	
 	@Override
+	
+	/**
+	 * Sets up and positions the obstacles and shooters
+	 */
 	public void setup() {
 		// TODO Auto-generated method stub
 		obstacles.add(new Block(400, 400, 300, 5));

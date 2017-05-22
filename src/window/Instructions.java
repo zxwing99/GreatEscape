@@ -25,6 +25,10 @@ public class Instructions extends PApplet implements ActionListener{
 	private int height2;
 	private boolean buttonAdded = true;
 	
+	/**
+	 * Creates the set of instructions
+	 * @param display - Represents the screen to which the instructions are printed
+	 */
 	public Instructions(Main display) {
 		this.display = display;
 		xCoord = 0;
@@ -48,6 +52,10 @@ public class Instructions extends PApplet implements ActionListener{
 	}
 
 	
+	/**
+	 * Shows the instructions
+	 * @param window - Represents the screen to which the instructions will be printed
+	 */
 	public void show(JFrame window){
 		this.window = window;
 		GridLayout layout = new GridLayout();
@@ -60,12 +68,18 @@ public class Instructions extends PApplet implements ActionListener{
 		
 	}
 	
+	/**
+	 * Runs the instructions
+	 */
 	public void runMe() {
 		super.initSurface();
 		super.surface.startThread();
 		pause(true);
 	}
 	
+	/**
+	 * Draws the instructions to the screen
+	 */
 	public void draw(){
 		background(0,100,0);
 		fill(255);
@@ -74,6 +88,11 @@ public class Instructions extends PApplet implements ActionListener{
 	}
 
 
+	
+	/**
+	 * Represents the action of the instructions being printed out
+	 * @param The action itself
+	 */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == mainMenu){
 			pause(true);
@@ -82,6 +101,10 @@ public class Instructions extends PApplet implements ActionListener{
 
 	}
 	
+	/**
+	 * Represents the pausing of viewing the instructions
+	 * @param paused - Whether or not the viewing of the instructions is paused or not
+	 */
 	public void pause(boolean paused) {
 		if (paused)
 			noLoop();

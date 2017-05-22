@@ -30,6 +30,9 @@ public class Main {
 	private PSurfaceAWT.SmoothCanvas processingCanvasEnd,  processingCanvasInstructions;  
 	private PSurfaceAWT.SmoothCanvas processingCanvasGameFrame;   
 	
+	/**
+	 * Creates the entire game
+	 */
 	public Main() {
 		window = new JFrame();
 		
@@ -86,6 +89,10 @@ public class Main {
 	    showInstructions();
 	}
 	
+	/**
+	 * Fixes the processing panel sizes
+	 * @param match represents the component needing to be fixed
+	 */
 	public void fixProcessingPanelSizes(Component match) {
 		surf.setSize(match.getWidth(),match.getHeight());
 		surf2.setSize(match.getWidth(),match.getHeight());
@@ -94,6 +101,9 @@ public class Main {
 		
 	}
 	
+	/**
+	 * Makes the instructions show up to the screen
+	 */
 	public void showInstructions(){
 		
 		((CardLayout)cardPanel.getLayout()).show(cardPanel,"4");
@@ -103,6 +113,10 @@ public class Main {
 		
 	}
 	
+	/**
+	 * Makes the menu show up to the screen
+	 * @param m - Represents the map of levels
+	 */
 	public void showGameFrame(LevelMap m){
 		
 		((CardLayout)cardPanel.getLayout()).show(cardPanel,"2");
@@ -112,11 +126,20 @@ public class Main {
 		
 	}
 	
+	/**
+	 * Makes the game show up on the screen
+	 */
 	public void showGreatEscape(){
 		((CardLayout)cardPanel.getLayout()).show(cardPanel,"1");
 	
 	}
 	
+	/**
+	 * Makes the endgame process show up to the screen
+	 * @param won - Whether or not the game was finished or not
+	 * @param far - How far the character traveled
+	 * @param length - The length of the character's traveling
+	 */
 	public void showEndGame(boolean won, int far, int length){
 		
 		((CardLayout)cardPanel.getLayout()).show(cardPanel,"3");
@@ -124,7 +147,7 @@ public class Main {
 		processingCanvasEnd.requestFocus();
 		endGame.pause(false);
 	}
-
+	
 	public static void main(String[] args)
 	{
 		Main m = new Main();

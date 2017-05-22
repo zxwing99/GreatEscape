@@ -29,7 +29,11 @@ public class GameFrame extends PApplet implements ActionListener {
 	private int invinsible = 0;
 	private Main display;
 	private boolean draw = false;
-
+	
+	/**
+	 * Creates the starting menu
+	 * @param display - Represents the menu's display
+	 */
 	public GameFrame(Main display) {
 		keys = new ArrayList<Integer>();
 		this.display = display;
@@ -57,7 +61,11 @@ public class GameFrame extends PApplet implements ActionListener {
 		moveTimer = new Timer(40, this);
 		// moveTimer.start();
 	}
-
+	
+	/**
+	 * Sets up the starting menu
+	 * @param m - Represents the map of various levels
+	 */
 	public void setUp(LevelMap m) {
 
 		player = new Player(225, 400);
@@ -73,6 +81,9 @@ public class GameFrame extends PApplet implements ActionListener {
 //		pause(false);
 	}
 
+	/**
+	 * Runs the game
+	 */
 	public void runMe() {
 		super.initSurface();
 		super.surface.startThread();
@@ -81,8 +92,12 @@ public class GameFrame extends PApplet implements ActionListener {
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+	
+	/**
+	 * Performs the action of moving the character
+	 * @param e - The event of moving the character through the game
+	 */
+	public void actionPerformed(ActionEvent e) {		// TODO Auto-generated method stub
 		// moves the map up
 		if (e.getSource() == timer) {
 			map.move(MOVEBY);
@@ -133,6 +148,9 @@ public class GameFrame extends PApplet implements ActionListener {
 
 	}
 
+	/**
+	 * Draws the content to the screen
+	 */
 	public void draw() {
 		if (draw) {
 			super.background(255);
@@ -141,6 +159,27 @@ public class GameFrame extends PApplet implements ActionListener {
 		}
 	}
 
+	
+	/**
+	 * Represents the player's shooting ability
+	 */
+	public void keyPressed() {
+		if (!keys.contains(keyCode))
+			keys.add(keyCode);
+		if (KeyEvent.VK_SPACE == keyCode) {
+			player.shoot();
+		}
+	}
+
+	/**
+	 * Represents whether a key has been pressed or not
+	 */
+	public void keyReleased() {
+		while (keys.contains(keyCode))
+			keys.remove(new Integer(keyCode));
+	}
+
+	
 	public void checkPlayer() {
 		for (Obstacle obstacle : obstacles) {
 			if (obstacle.collisionTester(player)) {
@@ -157,24 +196,19 @@ public class GameFrame extends PApplet implements ActionListener {
 			}
 		}
 	}
-
-	public void keyPressed() {
-		if (!keys.contains(keyCode))
-			keys.add(keyCode);
-		if (KeyEvent.VK_SPACE == keyCode) {
-			player.shoot();
-		}
-	}
-
-	public void keyReleased() {
-		while (keys.contains(keyCode))
-			keys.remove(new Integer(keyCode));
-	}
-
+	/**
+	 * Whether or not the key was pressed
+	 * @param code - Represents the code for the key
+	 * @return - Whether or not the key was pressed
+	 */
 	public boolean isPressed(Integer code) {
 		return keys.contains(code);
 	}
 
+	/**
+	 * Represents the pausing of the game
+	 * @param paused - Whether or not the game was paused or not
+	 */
 	public void pause(boolean paused) {
 		 keys.clear();
 		if (paused) {
@@ -189,3 +223,4 @@ public class GameFrame extends PApplet implements ActionListener {
 	// new GameFrame(new Level1());
 	// }
 }
+

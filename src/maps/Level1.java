@@ -15,6 +15,7 @@ public class Level1 extends LevelMap {
 	//public int finY = -1600;
 	
 	/**
+	 * Creates the first level using the superclass' constructor
 	 * Creates the first level of the game
 	 */
 	public Level1(){
@@ -23,6 +24,8 @@ public class Level1 extends LevelMap {
 	}
 
 	/**
+	 * Draws the content to the screen
+	 * @param g - Represents the object to which the content is drawn
 	 * Draws the content of the first level to the screen
 	 */
 	public void draw(PApplet g) {
@@ -39,6 +42,7 @@ public class Level1 extends LevelMap {
 
 	@Override
 	/**
+	 * Sets up and positions the obstacles and the shooters
 	 * Sets up the obstacles
 	 */
 	public void setup() {
