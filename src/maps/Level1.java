@@ -14,11 +14,18 @@ public class Level1 extends LevelMap {
 //	private ArrayList<Obstacle> obstacles;
 	//public int finY = -1600;
 	
+	/**
+	 * Creates the first level using the superclass' constructor
+	 */
 	public Level1(){
 		super();
 		super.setLength(1600);
 	}
 
+	/**
+	 * Draws the content to the screen
+	 * @param g - Represents the object to which the content is drawn
+	 */
 	public void draw(PApplet g) {
 		g.pushMatrix();
 		g.pushStyle();
@@ -32,6 +39,9 @@ public class Level1 extends LevelMap {
 	}
 
 	@Override
+	/**
+	 * Sets up and positions the obstacles and the shooters
+	 */
 	public void setup() {
 		obstacles.add(new Block(200,-200, 400, 5));
 		obstacles.add(new Block(0, -400, 200, 5));

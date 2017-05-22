@@ -28,7 +28,11 @@ public class GameFrame extends PApplet implements ActionListener {
 	private int invinsible = 0;
 	private Main display;
 	private boolean draw = false;
-
+	
+	/**
+	 * Creates the starting menu
+	 * @param display - Represents the menu's display
+	 */
 	public GameFrame(Main display) {
 		keys = new ArrayList<Integer>();
 		this.display = display;
@@ -55,7 +59,11 @@ public class GameFrame extends PApplet implements ActionListener {
 		moveTimer = new Timer(40, this);
 		// moveTimer.start();
 	}
-
+	
+	/**
+	 * Sets up the starting menu
+	 * @param m - Represents the map of various levels
+	 */
 	public void setUp(LevelMap m) {
 		
 		player = new Player(width / 2, height * 3 / 4);
@@ -71,6 +79,9 @@ public class GameFrame extends PApplet implements ActionListener {
 //		pause(false);
 	}
 
+	/**
+	 * Runs the game
+	 */
 	public void runMe() {
 		super.initSurface();
 		super.surface.startThread();
@@ -79,6 +90,11 @@ public class GameFrame extends PApplet implements ActionListener {
 	}
 
 	@Override
+	
+	/**
+	 * Performs the action of moving the character
+	 * @param e - The event of moving the character through the game
+	 */
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		// moves the map up
@@ -109,9 +125,7 @@ public class GameFrame extends PApplet implements ActionListener {
 			if (isPressed(KeyEvent.VK_D))
 				player.setDirection(0);
 		}
-		if (invinsible <= 0)
-			checkPlayer();
-		else
+		if (invinsible > 0)
 			invinsible--;
 		ArrayList<Bullet> bullits = player.getbullets();
 		for (int i = 0; i < bullits.size(); i++) {
@@ -130,6 +144,9 @@ public class GameFrame extends PApplet implements ActionListener {
 
 	}
 
+	/**
+	 * Draws the content to the screen
+	 */
 	public void draw() {
 		if (draw) {
 			super.background(255);
@@ -138,23 +155,10 @@ public class GameFrame extends PApplet implements ActionListener {
 		}
 	}
 
-	public void checkPlayer() {
-		for (Obstacle obstacle : obstacles) {
-			if (obstacle.collisionTester(player)) {
-				invinsible = 30;
-				// player.looseALife();
-				if (!player.looseALife()) {
-					timer.stop();
-					moveTimer.stop();
-					// window.setVisible(false);
-					// this.dispose();
-					pause(true);
-					display.showEndGame(false, distanceTraveled, map.getLength());
-				}
-			}
-		}
-	}
-
+	
+	/**
+	 * Represents the player's shooting ability
+	 */
 	public void keyPressed() {
 		if (!keys.contains(keyCode))
 			keys.add(keyCode);
@@ -163,15 +167,27 @@ public class GameFrame extends PApplet implements ActionListener {
 		}
 	}
 
+	/**
+	 * Represents whether a key has been pressed or not
+	 */
 	public void keyReleased() {
 		while (keys.contains(keyCode))
 			keys.remove(new Integer(keyCode));
 	}
 
+	/**
+	 * Whether or not the key was pressed
+	 * @param code - Represents the code for the key
+	 * @return - Whether or not the key was pressed
+	 */
 	public boolean isPressed(Integer code) {
 		return keys.contains(code);
 	}
 
+	/**
+	 * Represents the pausing of the game
+	 * @param paused - Whether or not the game was paused or not
+	 */
 	public void pause(boolean paused) {
 		 keys.clear();
 		if (paused) {

@@ -23,6 +23,10 @@ public class EndGame extends PApplet implements ActionListener {
 	private Main display;
 	private boolean draw = false;
 
+	/**
+	 * Represents what happens when the player loses
+	 * @param display - Represents the game which the player loses
+	 */
 	public EndGame(Main display) {
 		this.display = display;
 		// wonGame = won;
@@ -49,6 +53,9 @@ public class EndGame extends PApplet implements ActionListener {
 
 	}
 
+	/**
+	 * Runs the process of ending the game
+	 */
 	public void runMe() {
 		super.initSurface();
 		super.surface.startThread();
@@ -56,6 +63,13 @@ public class EndGame extends PApplet implements ActionListener {
 		pause(true);
 	}
 
+	/**
+	 * Sets up the process of ending the game
+	 * @param won - Whether or not the game was won or not
+	 * @param far - Represents how far the player managed to move
+	 * @param length - Represents the length of the movement
+	 * @param window - Represents the window of the game-ending process
+	 */
 	public void setUp(boolean won, int far, int length, JFrame window) {
 		wonGame = won;
 		distance = (int) (far / (double) length);
@@ -75,6 +89,9 @@ public class EndGame extends PApplet implements ActionListener {
 		menu.addActionListener(this);
 	}
 
+	/**
+	 * Draws the content to the screen
+	 */
 	public void draw() {
 		if (draw) {
 			super.background(0, 100, 0);
@@ -84,6 +101,9 @@ public class EndGame extends PApplet implements ActionListener {
 		}
 	}
 
+	/**
+	 * Represents the action of ending the game
+	 */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == menu) {
 			pause(true);
@@ -94,6 +114,10 @@ public class EndGame extends PApplet implements ActionListener {
 		}
 	}
 
+	/**
+	 * Pauses the end-game process
+	 * @param paused - Whether or not the game is already paused
+	 */
 	public void pause(boolean paused) {
 		// keys.clear();
 		if (paused) {

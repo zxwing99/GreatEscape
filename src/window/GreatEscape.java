@@ -18,6 +18,10 @@ public class GreatEscape extends JPanel implements ActionListener {
 	private Main display;
 	boolean draw = false;
 
+	/**
+	 * Creates the game
+	 * @param display - Represents the screen on which the game is played
+	 */
 	public GreatEscape(Main display) {
 		this.display = display;
 		playL1 = new JButton("Play Level 1");
@@ -41,6 +45,9 @@ public class GreatEscape extends JPanel implements ActionListener {
 		
 	}
 	
+	/**
+	 * Represents the action of playing the game 
+	 */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == playL1) {
 			display.showGameFrame(new Level1());

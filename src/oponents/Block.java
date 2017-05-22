@@ -7,16 +7,32 @@ import processing.core.PApplet;
 public class Block extends Obstacle {
 //Zachary Norton
 	private Color c;
+	
+	/**
+	 * Creates an obstacle (barrier)
+	 * @param x - Represents the x-Coordinate of the obstacle
+	 * @param y - Represents the y-Coordinate of the obstacle
+	 * @param sizeX - Represents the width of the obstacle
+	 * @param sizeY - Represents the height of the obstacle
+	 */
 	public Block(int x, int y, int sizeX, int sizeY) {
 		super(x, y, sizeX, sizeY);
 		c = Color.BLUE;
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Sets the color of the obstacles
+	 * @param c - Represents the color's values
+	 */
 	public void setColor(Color c){
 		this.c = c;
 	}
 	@Override
+	
+	/**
+	 * Draws the obstacle to the screen
+	 */
 	public void draw(PApplet g) {
 		// TODO Auto-generated method stub
 		g.pushMatrix();

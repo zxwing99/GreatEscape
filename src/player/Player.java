@@ -17,6 +17,11 @@ public class Player extends Rectangle2D.Double implements ActionListener{
 	private Timer fire;
 	private ArrayList<Bullet> bullets;
 	
+	/**
+	 * Creates the player of the game
+	 * @param x - Represents the player's x-Coordinate
+	 * @param y - Represents the player's y-Coordinate
+	 */
 	public Player (int x, int y){
 		super(x, y, SIZE, SIZE);
 		bullets = new ArrayList<Bullet>();
@@ -24,25 +29,54 @@ public class Player extends Rectangle2D.Double implements ActionListener{
 		fire.start();
 	}
 	
+	/**
+	 * Moves the player forward 3 units
+	 */
 	public void moveFoward(){
 		y-=3;
 	}
+	
+	/**
+	 * Moves the player to the right by 3 units
+	 */
 	public void moveRight(){
 		x+=3;
 	}
+	
+	/**
+	 * Moves the player backwards by 3 units
+	 */
 	public void moveBackward(){
 		y+=3;
 	}
+	
+	/**
+	 * Moves the player to the left b y 3 units
+	 */
 	public void moveLeft(){
 		x-=3;
 	}
 	
+	/**
+	 * Gets the bullets the player is firing
+	 * @return - The bullets the player is firing
+	 */
 	public ArrayList<Bullet> getbullets(){
 		return bullets;
 	}
+	
+	/**
+	 * Sets the direction of the player
+	 * @param d - Represents the direction of the player
+	 */
 	public void setDirection(int d){
 		direction = d;
 	}
+	
+	/**
+	 * Draws the content to the screen
+	 * @param g - Represents the object on which the content is being drawn
+	 */
 	public void draw(PApplet g){
 		g.pushMatrix();
 		g.pushStyle();
@@ -63,6 +97,10 @@ public class Player extends Rectangle2D.Double implements ActionListener{
 		g.popStyle();
 	}
 	
+	/**
+	 * Whether or not the player has lost their life yet
+	 * @return - Whether or not the player's life has been lost
+	 */
 	public boolean looseALife(){
 		lives--;
 		if (lives<=0){
@@ -71,18 +109,28 @@ public class Player extends Rectangle2D.Double implements ActionListener{
 		return true;
 	}
 	
+	/**
+	 * Increases the number of lives the player has
+	 */
 	public void gainLife(){
 		if (lives>0&&lives<3)
 			lives++;
 	}
 
 	@Override
+	/**
+	 * Performs the action of the player
+	 * @param 3 - Represents the said action
+	 */
 	public void actionPerformed(ActionEvent e) {
 		for (Bullet bullet : bullets) {
 			bullet.act();
 		}
 	}
 
+	/**
+	 * This method represents the player's shooting mechanism
+	 */
 	public void shoot() {
 		if (direction<45||direction>315)
 		bullets.add(new Bullet((int) (x+width), (int)(y+height/2)-3, direction));
