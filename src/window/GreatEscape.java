@@ -1,12 +1,17 @@
 package window;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
 
 import maps.*;
 import processing.awt.PSurfaceAWT;
@@ -59,63 +64,4 @@ public class GreatEscape extends JPanel implements ActionListener {
 		}
 	}
 	
-	
-	
-	// window.setVisible(true);
-	//pause(true);
-	// window.setVisible(false);
-			// new GameFrame(new Level1());
-	// window.setVisible(false);
-		//	pause(true);
-	// window.setVisible(false);
-		//	pause(true);
-//	// private JFrame window;
-		// super.runSketch();
-		//
-		// PSurfaceAWT surf = (PSurfaceAWT) this.getSurface();
-		// PSurfaceAWT.SmoothCanvas canvas = (PSurfaceAWT.SmoothCanvas)
-		// surf.getNative();
-		// window = (JFrame) canvas.getFrame();
-		// this.display = display;
-		// window.setSize(500, 500);
-		// window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		// window.setResizable(true);
-
-		// window.setVisible(true);
-//	public void setUp(JFrame window){
-//		GridLayout layout = new GridLayout(4, 4, 10, 10);
-//		window.setLayout(layout);
-////		 window.add(canvas);
-//		window.add(playL1);
-//		window.add(playL2);
-//		window.add(instructions);
-//		//runSketch();
-//	}
-//	public void draw() {
-//		if (draw)
-//			super.background(0);
-//
-//	}
-
-//	public void runMe() {
-//		super.initSurface();
-//		super.surface.startThread();
-//
-//		//pause(true);
-//	}
-
-//	@Override
-	
-
-//	public void pause(boolean paused) {
-//		// keys.clear();
-//		if (paused) {
-//			draw = false;
-//			noLoop();
-//		} else {
-//			draw = true;
-//			loop();
-//		}
-//	}
-
 }

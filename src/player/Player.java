@@ -83,7 +83,7 @@ public class Player extends Rectangle2D.Double implements ActionListener{
 		if (lives == 3)
 			g.fill(50,205,50);
 		if (lives == 2){
-			g.fill(13,13,255);
+			g.fill(255,140,0);
 		}
 		if (lives == 1){
 			g.fill(255,0,0);

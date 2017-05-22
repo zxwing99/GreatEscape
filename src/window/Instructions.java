@@ -23,7 +23,7 @@ public class Instructions extends PApplet implements ActionListener{
 	private int yCoord;
 	private int width2;
 	private int height2;
-
+	private boolean buttonAdded = true;
 	
 	/**
 	 * Creates the set of instructions
@@ -31,7 +31,6 @@ public class Instructions extends PApplet implements ActionListener{
 	 */
 	public Instructions(Main display) {
 		this.display = display;
-//		game = escape;
 		xCoord = 0;
 		yCoord = 0;
 		width2 = 40;
@@ -48,18 +47,10 @@ public class Instructions extends PApplet implements ActionListener{
 		mainMenu = new JButton("Main Menu");
 		mainMenu.addActionListener(this);
 		
+
+		
 	}
-	// TODO Auto-generated constructor stub
-//		super.runSketch();
-//		PSurfaceAWT surf = (PSurfaceAWT) this.getSurface();
-//		PSurfaceAWT.SmoothCanvas canvas = (PSurfaceAWT.SmoothCanvas) surf.getNative();
-//		window = (JFrame) canvas.getFrame();
-//
-//		window.setSize(800, 600);
-//		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//		window.setResizable(true);
-//
-//		window.setVisible(true);
+
 	
 	/**
 	 * Shows the instructions
@@ -67,10 +58,13 @@ public class Instructions extends PApplet implements ActionListener{
 	 */
 	public void show(JFrame window){
 		this.window = window;
-		GridLayout layout = new GridLayout(2,1);
+		GridLayout layout = new GridLayout();
 		window.setLayout(layout);
-//		window.add(canvas);
-		window.add(mainMenu);
+		if(buttonAdded == true){
+			window.add(mainMenu);
+			buttonAdded = false;
+		}
+		
 		
 	}
 	
@@ -93,7 +87,7 @@ public class Instructions extends PApplet implements ActionListener{
 		text(message, 20, yCoord+30);
 	}
 
-	@Override
+
 	
 	/**
 	 * Represents the action of the instructions being printed out
@@ -101,15 +95,10 @@ public class Instructions extends PApplet implements ActionListener{
 	 */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == mainMenu){
-			//window.setVisible(false);
-			//window.clear();
-			//.remove(mainMenu);
 			pause(true);
 			display.showGreatEscape();
-			//display.showGameFrame(m);
 		}
-		// TODO Auto-generated method stub
-		
+
 	}
 	
 	/**
@@ -117,7 +106,6 @@ public class Instructions extends PApplet implements ActionListener{
 	 * @param paused - Whether or not the viewing of the instructions is paused or not
 	 */
 	public void pause(boolean paused) {
-		//keys.clear();
 		if (paused)
 			noLoop();
 		else

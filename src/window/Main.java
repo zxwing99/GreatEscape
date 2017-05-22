@@ -54,7 +54,7 @@ public class Main {
 		surf2 = (PSurfaceAWT) gameFrame.getSurface();
 		processingCanvasGameFrame = (PSurfaceAWT.SmoothCanvas) surf2.getNative();
 
-		window.setMinimumSize(new Dimension(800,600));
+		window.setMinimumSize(new Dimension(1500,600));
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setResizable(true);
 		
@@ -79,7 +79,6 @@ public class Main {
 	    cardPanel.add(processingCanvasEnd,"3");
 	    cardPanel.add(processingCanvasInstructions,"4");
 	    
-	    window.setLayout(new BorderLayout());
 
 	    window.add(cardPanel);
 	    
@@ -87,7 +86,7 @@ public class Main {
 	    
 	    window.setBounds(0, 0, 500, 500);
 	    
-	    //showGreatEscape();
+	    showInstructions();
 	}
 	
 	/**
@@ -106,6 +105,7 @@ public class Main {
 	 * Makes the instructions show up to the screen
 	 */
 	public void showInstructions(){
+		
 		((CardLayout)cardPanel.getLayout()).show(cardPanel,"4");
 		processingCanvasInstructions.requestFocus();
 		instructions.show(window);
@@ -118,12 +118,12 @@ public class Main {
 	 * @param m - Represents the map of levels
 	 */
 	public void showGameFrame(LevelMap m){
+		
 		((CardLayout)cardPanel.getLayout()).show(cardPanel,"2");
 		gameFrame.setUp(m);
-		processingCanvasGameFrame.requestFocus();
 		gameFrame.pause(false);
-//		changePanel("3");
-		//a
+		processingCanvasGameFrame.requestFocus();
+		
 	}
 	
 	/**
@@ -131,9 +131,7 @@ public class Main {
 	 */
 	public void showGreatEscape(){
 		((CardLayout)cardPanel.getLayout()).show(cardPanel,"1");
-		//greatEscape.setUp(window);
-		//processingCanvasGreatEscape.requestFocus();
-//		greatEscape.pause(false);
+	
 	}
 	
 	/**
@@ -143,10 +141,11 @@ public class Main {
 	 * @param length - The length of the character's traveling
 	 */
 	public void showEndGame(boolean won, int far, int length){
+		
 		((CardLayout)cardPanel.getLayout()).show(cardPanel,"3");
 		endGame.setUp(won, far, length, window);
 		processingCanvasEnd.requestFocus();
-//		endGame.pause(false);
+		endGame.pause(false);
 	}
 	
 	public static void main(String[] args)
@@ -157,15 +156,6 @@ public class Main {
 		
 	}
   
-//	public void changePanel(String name) {
-//		((CardLayout)cardPanel.getLayout()).show(cardPanel,name);
-//		if (name.equals("2")) {
-//			processingCanvasEnd.requestFocus();
-//			endGame.pause(false);
-//		} else if (name.equals("3")) {
-//			processingCanvasGameFrame.requestFocus();
-//			gameFrame.pause(false);
-//		}
-//	}
+
   
 }

@@ -19,7 +19,7 @@ public class EndGame extends PApplet implements ActionListener {
 	private JButton menu;
 	private boolean wonGame;
 	private int distance;
-	// private JFrame window;
+
 	private Main display;
 	private boolean draw = false;
 
@@ -29,28 +29,6 @@ public class EndGame extends PApplet implements ActionListener {
 	 */
 	public EndGame(Main display) {
 		this.display = display;
-		// wonGame = won;
-		// distance = (int)(far/(double)length);
-		//
-		// if(wonGame == true){
-		// message = "You won!";
-		// }else{
-		// message = "You lost, but you got this far into the game: " + distance
-		// + "%";
-		// }
-//		menu = new JButton("Return to Menu");
-		// super.runSketch();
-
-		// PSurfaceAWT surf = (PSurfaceAWT) this.getSurface();
-		// PSurfaceAWT.SmoothCanvas canvas = (PSurfaceAWT.SmoothCanvas)
-		// surf.getNative();
-		// window = (JFrame) canvas.getFrame();
-
-		// window.setSize(800, 600);
-		// window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		// window.setResizable(true);
-
-
 	}
 
 	/**
@@ -72,21 +50,14 @@ public class EndGame extends PApplet implements ActionListener {
 	 */
 	public void setUp(boolean won, int far, int length, JFrame window) {
 		wonGame = won;
-		distance = (int) (far / (double) length);
+		distance = (int) (far*100 / (double) length);
 
 		if (wonGame == true) {
 			message = "You won!";
 		} else {
 			message = "You lost, but you got this far into the game: " + distance + "%";
 		}
-		menu = new JButton("Return to Menu");
-		GridLayout layout = new GridLayout(2, 1);
-		window.setLayout(layout);
-		// window.add(canvas);
-		window.add(menu);
-		// window.setVisible(true);
 
-		menu.addActionListener(this);
 	}
 
 	/**
@@ -107,10 +78,7 @@ public class EndGame extends PApplet implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == menu) {
 			pause(true);
-			// window.setVisible(false);
-			// dispose();
 			display.showGreatEscape();
-
 		}
 	}
 
@@ -119,7 +87,7 @@ public class EndGame extends PApplet implements ActionListener {
 	 * @param paused - Whether or not the game is already paused
 	 */
 	public void pause(boolean paused) {
-		// keys.clear();
+
 		if (paused) {
 			draw = false;
 			noLoop();
