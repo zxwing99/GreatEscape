@@ -21,6 +21,7 @@ public class Shooter extends Block implements ActionListener {
 
 	public Shooter(int x, int y, int sizeX, int sizeY, int direction) {
 		super(x, y, sizeX, sizeY);
+		stability = 4;
 		this.direction = direction;
 		bullets = new ArrayList<Bullet>();
 		fire = new Timer(20, this);

@@ -8,7 +8,7 @@ import processing.core.PApplet;
 public abstract class Obstacle extends Rectangle2D.Double{
 
 	//Zachary Norton
-	private int stability;
+	protected int stability;
 	public Obstacle(int x, int y, int sizeX, int sizeY){
 		super(x, y, sizeX, sizeY);
 		stability = Integer.MAX_VALUE;
