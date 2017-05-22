@@ -76,7 +76,6 @@ public class Main {
 	    cardPanel.add(processingCanvasEnd,"3");
 	    cardPanel.add(processingCanvasInstructions,"4");
 	    
-	    //window.setLayout(new BorderLayout());
 
 	    window.add(cardPanel);
 	    
@@ -115,9 +114,7 @@ public class Main {
 	
 	public void showGreatEscape(){
 		((CardLayout)cardPanel.getLayout()).show(cardPanel,"1");
-		//greatEscape.setUp(window);
-		//processingCanvasGreatEscape.requestFocus();
-		//greatEscape.pause(false);
+	
 	}
 	
 	public void showEndGame(boolean won, int far, int length){
@@ -136,15 +133,6 @@ public class Main {
 		
 	}
   
-//	public void changePanel(String name) {
-//		((CardLayout)cardPanel.getLayout()).show(cardPanel,name);
-//		if (name.equals("2")) {
-//			processingCanvasEnd.requestFocus();
-//			endGame.pause(false);
-//		} else if (name.equals("3")) {
-//			processingCanvasGameFrame.requestFocus();
-//			gameFrame.pause(false);
-//		}
-//	}
+
   
 }

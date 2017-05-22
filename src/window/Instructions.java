@@ -27,7 +27,6 @@ public class Instructions extends PApplet implements ActionListener{
 	
 	public Instructions(Main display) {
 		this.display = display;
-//		game = escape;
 		xCoord = 0;
 		yCoord = 0;
 		width2 = 40;
@@ -79,7 +78,6 @@ public class Instructions extends PApplet implements ActionListener{
 		if (e.getSource() == mainMenu){
 			pause(true);
 			display.showGreatEscape();
-			//display.showGameFrame(m);
 		}
 
 	}
