@@ -1,12 +1,17 @@
 package window;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
 
 import maps.*;
 import processing.awt.PSurfaceAWT;
@@ -48,8 +53,10 @@ public class GreatEscape extends JPanel implements ActionListener {
 			display.showGameFrame(new Level2());
 		} else if (e.getSource() == instructions) {		
 			display.showInstructions();
+		
 		}
 	}
+	
 	
 	// window.setVisible(true);
 	//pause(true);

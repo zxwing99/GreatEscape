@@ -23,7 +23,7 @@ public class Shooter extends Block implements ActionListener {
 		super(x, y, sizeX, sizeY);
 		this.direction = direction;
 		bullets = new ArrayList<Bullet>();
-		fire = new Timer(50, this);
+		fire = new Timer(20, this);
 		fixer = 0;
 		fire.start();
 	}

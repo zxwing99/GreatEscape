@@ -59,6 +59,7 @@ public class GameFrame extends PApplet implements ActionListener {
 	}
 
 	public void setUp(LevelMap m) {
+
 		player = new Player(225, 400);
 		map = m;
 		map.setup();

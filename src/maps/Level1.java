@@ -53,7 +53,9 @@ public class Level1 extends LevelMap {
 		obstacles.add(new Block(390, -350, 10, 405));
 		obstacles.add(new Shooter(425,125,50,50,270));
 		obstacles.add(new Shooter(150,300,50,50,270));
-		obstacles.add(new Shooter(900,-500,50,50,90));
+		obstacles.add(new Block(-100,-400,100, 1000));
+		obstacles.add(new Block(500,-400,100, 1000));
+		
 	}
 	
 	

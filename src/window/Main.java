@@ -51,7 +51,7 @@ public class Main {
 		surf2 = (PSurfaceAWT) gameFrame.getSurface();
 		processingCanvasGameFrame = (PSurfaceAWT.SmoothCanvas) surf2.getNative();
 
-		window.setMinimumSize(new Dimension(1900,1000));
+		window.setMinimumSize(new Dimension(1500,600));
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setResizable(true);
 		
@@ -131,6 +131,9 @@ public class Main {
 	public static void main(String[] args)
 	{
 		Main m = new Main();
+		GreatEscape great = new GreatEscape(m);
+		
+		
 	}
   
 //	public void changePanel(String name) {

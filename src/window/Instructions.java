@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import maps.LevelMap;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -42,20 +43,11 @@ public class Instructions extends PApplet implements ActionListener{
 		message = message + message2 + message3 + message4 + message5+ message6 + message7+ message8;
 		mainMenu = new JButton("Main Menu");
 		mainMenu.addActionListener(this);
+		
 
 		
 	}
-	// TODO Auto-generated constructor stub
-//		super.runSketch();
-//		PSurfaceAWT surf = (PSurfaceAWT) this.getSurface();
-//		PSurfaceAWT.SmoothCanvas canvas = (PSurfaceAWT.SmoothCanvas) surf.getNative();
-//		window = (JFrame) canvas.getFrame();
-//
-//		window.setSize(800, 600);
-//		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//		window.setResizable(true);
-//
-//		window.setVisible(true);
+
 	
 	public void show(JFrame window){
 		this.window = window;
@@ -87,6 +79,7 @@ public class Instructions extends PApplet implements ActionListener{
 		if (e.getSource() == mainMenu){
 			pause(true);
 			display.showGreatEscape();
+			//display.showGameFrame(m);
 		}
 
 	}
